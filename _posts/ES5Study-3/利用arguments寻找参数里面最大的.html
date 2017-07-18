@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function max(){
+        var i,
+        max=arguments[0];
+        if (arguments.legnth<2){
+            return max;
+        }
+        for(i=0;i<arguments.length;i++){
+            max > arguments[i] ? max : max = arguments[i];
+        }
+        return max;
+    }
+    var max=max(34,45,12,56,4,5,765,34,56,756);
+    console.log(max);//返回756
+</script>
+</html>

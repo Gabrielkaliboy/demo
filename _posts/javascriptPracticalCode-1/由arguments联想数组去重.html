@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var dataArray=[1,2,3,1,2,3,"dd","cc","dd","cc"];
+    Array.prototype.deleteRepeat=function(){
+        //这里的this指向的就是当前的数组，比如dataArray
+        //result就是去重以后的数组
+        var result=[this[0]];
+        for(var i=0;i<this.length;i++){
+            var repeat=false;
+            for(var m=0;m<result.length;m++){
+                //核心：将原数组里面的值与result里面的每个做比较
+                if(this[i]==result[m]){
+                    //如果if成立，说明数组里面的当前值在result里面有，也就是重复了，跳出result的for循环，再将i+1,继续比较
+                    repeat=true;
+                    break;
+                }
+            }
+            if(!repeat){
+                result.push(this[i]);
+            }
+        }
+        return result;
+    }
+    console.log(dataArray.deleteRepeat());
+</script>
+</html>

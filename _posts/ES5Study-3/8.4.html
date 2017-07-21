@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var myObject = {
+        name:"李明",
+        age:"23",
+        message:function(){
+            return this.name+"  "+this.age+"岁";
+        }
+    };
+    //调用
+    console.log(myObject.message());
+    //myObjcet 是message方法的所有者，函数作为对象的方法调用，会使得this指向对象本身
+</script>
+</html>

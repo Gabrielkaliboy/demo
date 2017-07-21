@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function test(a,b){
+        return a+b;
+    }
+    var myTest1=test.call(myTest1,2,3);
+    var myTest2=test.apply(myTest2,[2,3]);
+    //返回都是5，注意call和apply写法的区别
+    console.log(myTest1);
+    console.log(myTest2);
+</script>
+</html>

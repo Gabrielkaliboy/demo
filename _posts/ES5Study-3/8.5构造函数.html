@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function myFunc(name,age){
+        this.age=age;
+        this.name=name;
+        //在没有new对象的时候，this为window，初始化以后就是指向那个实例了
+        //console.log(this);
+    }
+    var yourFunc=new myFunc("李明",12);
+    console.log(yourFunc.age);
+</script>
+</html>

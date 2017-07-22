@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+(function() {
+    var oldAlert = window.alert,
+        count = 0;
+    window.alert = function(a) {
+        count++;
+        oldAlert(a + "\n 你已经调用了alert " + count + " 次. 这让人感到不爽，不要在这么做了");
+    };
+})();
+alert("Hello World");
+</script>
+</html>

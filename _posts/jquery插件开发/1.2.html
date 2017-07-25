@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    $.extend({
+        log:function(message){
+            var now = new Date(),
+                y=now.getFullYear(),
+                m=now.getMonth()+1,//javascript中月份是在0开始的
+                d=now.getDate(),
+                h=now.getHours(),
+                min=now.getMinutes(),
+                s=now.getSeconds(),
+                time=y+"年"+m+"月"+d+"日"+h+"时"+min+"分"+s+"秒";
+                alert(time+message);
+        }
+    })
+    $.log("你好");
+</script>
+</html>

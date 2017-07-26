@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="http://www.webo.com/liuwayong">我的微博</a>
+        </li>
+        <li>
+            <a href="http://http://www.cnblogs.com/Wayou/">我的博客</a>
+        </li>
+        <li>
+            <a href="http://wayouliu.duapp.com/">我的小站</a>
+        </li>
+    </ul>
+    <p>这是p标签不是a标签，我不会受影响</p>
+</body>
+<script>
+    //定义beautifier的构造函数
+    var Beautifier=function(ele,opt){
+        //第一个参数就是jQuery选择器中的元素，将它赋值给$element
+        this.$element = ele,
+        //这是里面的默认配置
+        this.defaults={
+            'color':'red',
+            'fontSize':'12px',
+            'textDecoration':'none'
+        },
+        //将用户设置与默认设置合并设置给options
+        this.options = $.extend({},this.defaults,opt)
+    };
+
+    //给构造函数Beautifier上面挂方法，注意这里的this都是指向Beautifier
+    Beautifier.prototype = {
+        beautify:function(){
+            //这里调用jQuery对象的方法
+            return this.$element.css({
+                "color":this.options.color,
+                "fontSize":this.options.fontSize,
+                "textDecoration":this.options.textDecoration
+            })
+        }
+    }
+    //在插件中使用beautifier对象
+    $.fn.myPlugin = function(options){
+        //options还是传进来的那个用户设置，用对象包裹的
+        //创建beautifier实体，这里的this指向的是jQuery选择器中的元素
+        var beautifier = new Beautifier(this,options);
+        //调用其他方法
+        return beautifier.beautify();
+    }
+
+    //使用
+    $(function(){
+        $("a").myPlugin({
+            'color':"#f0f",
+            "fontSize":"25px"
+        })
+    })
+</script>
+</html>

@@ -15,3 +15,4 @@ function greeter(person:Person){
 }
 
 var userH=new Student("jarry","m","user");
+document.body.innerHTML=greeter(user);

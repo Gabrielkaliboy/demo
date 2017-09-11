@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        class Animal{
+            constructor () {
+                this.type="animal";
+            }
+            says(say){
+                setTimeout(function(){
+                    console.log(this.type+"says"+say);
+                }.bind(this),1000)
+            }
+        }
+        var animal = new Animal();
+        animal.says("hi");
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

@@ -36,3 +36,9 @@ def fn(x,y):
     return x*10+y
 
 print(reduce(fn,[1,2,3,4,5,6]))
+
+# 这个例子本身没多大用处，但是，如果考虑到字符串str也是一个序列，对上面的例子稍加改动，配合map()，我们就可以写出把str转换为int的函数：
+def strToNumber(s):
+    return {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}[s]
+
+print(reduce(fn,map(strToNumber,"123465")))

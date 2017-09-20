@@ -42,3 +42,27 @@ def strToNumber(s):
     return {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}[s]
 
 print(reduce(fn,map(strToNumber,"123465")))
+
+# 整理成一个str2int的函数就是：
+def str2int(s):
+    def fn(x,y):
+        return x*10+y
+    def strToNumber(s):
+        return {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}[s]
+    return reduce(fn,map(strToNumber,s))
+
+print(str2int("8542695"))
+
+# 还可以用lambda函数进一步简化成：
+def char3num(s):
+    return {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}[s]
+
+def str3int(s):
+    return reduce (lambda x,y:x*10+y,map(char3num,s))
+
+#利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']：
+
+
+# Python提供的sum()函数可以接受一个list并求和，请编写一个prod()函数，可以接受一个list并利用reduce()求积：
+
+# 利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456：

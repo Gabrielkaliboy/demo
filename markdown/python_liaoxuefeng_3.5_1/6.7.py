@@ -27,3 +27,4 @@ print("非Iterator转化为Iterator")
 print(isinstance(iter([]),Iterator))
 print(isinstance(iter({}),Iterator))
 print(isinstance(iter('adfasd'),Iterator))
+

@@ -66,3 +66,27 @@ print(now2.__name__)
 
 # 不需要编写wrapper.__name__ = func.__name__这样的代码，Python内置的functools.wraps就是干这个事的，所以，一个完整的decorator的写法如下：
 
+import functools
+def log2(func):
+    @functools.wraps(func)
+    def wrapper(*args,**kw):
+        print('call %s():'%func.__name__)
+        return func(*args,**kw)
+    return wrapper
+
+# 或者针对带参数的decorator：
+import functools
+
+def log3(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+
+
+# 小结
+

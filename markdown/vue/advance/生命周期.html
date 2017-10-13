@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            message:"hello world"
+        },
+        //钩子的this指向vue实例
+        beforeCreate:function(){
+            alert("beforeCreate")
+        },
+        created:function(){
+            //this指向vm实例
+            alert("created")
+        },
+        beforeMount:function(){
+            alert("beforeMount")
+        },
+        mounted:function(){
+            alert("mounted");
+        },
+        // 数据更新会触发
+        beforeUpdate:function(){
+            alert("beforeUpdate")
+        },
+        updated:function(){
+            alert("updated")
+        },
+        //要想调用这个需要调用实例vm.$destroy()
+        beforeDestroy:function(){
+            alert("beforeDestroy")
+        },
+        destroyed:function(){
+            alert("destroyed")
+        }
+    })
+</script>
+</html>

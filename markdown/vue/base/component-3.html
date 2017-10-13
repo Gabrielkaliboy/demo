@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <todo-list v-for="items in eatWhat" v-bind:todo="items" v-bind:key="items.id">
+
+            </todo-list>
+        </ol>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    Vue.component("todo-list",{
+        props:["todo"],
+        template:"<li>{{todo.text}}</li>"
+    })
+    var app=new Vue({
+        el:"#app",
+        data:{
+            "eatWhat":[
+                {id:0,text:"banana"},
+                {id:1,text:"orange"},
+                {id:2,text:"graps"}
+            ]
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>17对标-设备物联网平台 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/customer-second-base.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <header class="am-header am-header-default">
+        <div class="am-header-left am-header-nav">
+            <a href="../customer-center.html" class="">
+                <i class="am-header-icon am-icon-arrow-left"></i>
+                <span class="separate">|</span>
+                <span class="am-header-nav-title">
+                授权申请
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <div class="main am-g">
+        <div class="my-nav am-cf am-margin-bottom">
+            <ul id="my-device-menu">
+                <!-- <li class="my-nav-li">
+                    <div class="my-nav-i">
+                        <i class="am-icon-th"></i>
+                    </div>
+                    <div class="my-nav-title">设备管理</div>
+                </li>
+                <li class="my-nav-li">
+                    <div class="my-nav-i">
+                        <i class="am-icon-plug"></i>
+                    </div>
+                    <div class="my-nav-title">设备应用</div>
+                </li>
+                <li class="my-nav-li">
+                    <div class="my-nav-i">
+                        <i class="am-icon-dot-circle-o"></i>
+                    </div>
+                    <div class="my-nav-title">设备监控</div>
+                </li>
+                <li class="my-nav-li">
+                    <div class="my-nav-i">
+                        <i class="am-icon-hand-pointer-o"></i>
+                    </div>
+                    <div class="my-nav-title">基础设置</div>
+                </li>
+                <li class="my-nav-li">
+                    <div class="my-nav-i">
+                        <i class="am-icon-envelope-o"></i>
+                    </div>
+                    <div class="my-nav-title">意见反馈</div>
+                </li>
+                <li class="my-nav-li">
+                    <div class="my-nav-i">
+                        <i class="am-icon-asl-interpreting"></i>
+                    </div>
+                    <div class="my-nav-title">授权查看</div>
+                </li>
+                <li class="my-nav-li">
+                    <div class="my-nav-i">
+                        <i class="am-icon-"></i>
+                    </div>
+                    <div class="my-nav-title"></div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <!-- 底部的按钮 -->
+    <footer class="footer">
+        <div class="menu am-cf">
+            <div class="items items-active" target="index">
+                <div><i class="am-icon-home"></i></div>
+                <div class="items-title">首页</div>
+            </div>
+            <div class="items" target="check">
+                <div><i class="am-icon-cog"></i></div>
+                <div class="items-title">检测</div>
+            </div>
+            <div class="items" target="customerService">
+                <div><i class="am-icon-shopping-cart"></i></div>
+                <div class="items-title">售后</div>
+            </div>
+            <div class="items am-dropdown am-dropdown-up" data-am-dropdown>
+                <div class="am-dropdown-toggle" data-am-dropdown-toggle>
+                    <div><i class="am-icon-plus-square"></i></div>
+                    <div class="items-title">更多</div>
+                </div>
+                <ul class="am-dropdown-content">
+                    <li><a href="#">1</a></li>
+                    <li class="am-active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <!-- 上线前删除 -->
+    <script src="../assets/deleteBeforeLine/mock-min.js"></script>
+    <!-- 上线前删除 -->  
+    <script>
+        $(".items").on("click",function(){
+            $(".items").removeClass("items-active");
+            $(this).addClass("items-active");
+        })
+
+        var menuList = [
+            {
+                "id": "menu-Softauthorization-slicense",
+                "title": "软件授权",
+                "icon": "am-icon-key",
+                "src":""
+            }
+        ];
+
+        Mock.mock('http://g.cn', menuList);
+        $.ajax({
+            url: "http://g.cn",
+            dataType:"json",
+            success: function (data, textStatus) {
+                var str="";
+                data.forEach(function(value,index){
+                    str+='<li onclick="location.href=\''+value.src+'\'"'+' class="my-nav-li" id="'+value.id+'"><div class="my-nav-i"><i class="'+value.icon+'"></i></div><div class="my-nav-title">'+value.title+'</div>'
+                });
+                $("#my-device-menu").html(str);
+            }
+        })
+    </script>
+</body>
+
+</html>

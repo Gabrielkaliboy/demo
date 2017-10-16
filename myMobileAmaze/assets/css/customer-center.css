@@ -1,0 +1,103 @@
+/* 登录以后的customer-center*/
+body{
+    background:#E7E7E7;
+}
+.am-logo {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.am-topbar {
+    background: #1C82D2;
+}
+
+#collapse-head a {
+    color: #0087db;
+}
+
+.my-btn-primary {
+    background-color: #ffffff;
+    border-color: #0e90d2;
+}
+/* 快速开始 */
+
+.my-quick,
+.my-nav {
+    padding: 1rem 0.5rem;
+    background: #fff;
+}
+
+.my-quick-li {
+    width: 25%;
+    color: #1C82D2;
+    float: left;
+    font-weight: 600;
+    text-align: center;
+}
+
+.my-quick-i {
+    font-size: 2.5rem;
+    position: relative;
+}
+.my-quick-num{
+    position: absolute;
+    left: 58%;
+    font-size: 1.2rem;
+    background: #f00;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    color: #fff;
+}
+
+.my-nav-li {
+    width: 25%;
+    color: #1C82D2;
+    float: left;
+    text-align: center;
+}
+
+.my-nav-i {
+    font-size: 1.8rem;
+}
+
+.my-nav-title {
+    color: #000;
+    font-size: 1.5rem;
+}
+.main{
+    height: 100%;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #FAFBFF;
+    /* background: #0087db; */
+    text-align: center;
+    border-top: 1px solid #ececec;
+}
+.menu{
+}
+.items {
+    float: left;
+    width:25%;
+    height: 4.5rem;
+
+}
+.items i{
+    font-size: 2rem;
+}
+.items-title{
+    position: relative;
+    top: -6px;
+}
+.items-active{
+    color:#1C82D2;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding:0;
+}

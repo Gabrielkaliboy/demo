@@ -1,0 +1,19 @@
+/* 登录之前所有页面的公共部分--头部和尾部 */
+  /*我写的*/
+  /* 使图标居中 */
+  .am-logo {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .footer p {
+    color: #7f8c8d;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+    background: #2d3e50;
+  }
+  /* 顶部的下拉菜单 */
+  #collapse-head a{
+    color:#fff;
+  }

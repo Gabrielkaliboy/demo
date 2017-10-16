@@ -1,0 +1,69 @@
+/* 登录以后的公共带返回图标的基础样式控制*/
+/* 基础页面查看customer-second-base */
+body{
+    background:#E7E7E7;
+}
+.am-header-default{
+    background:#1C82D2;
+}
+/* 顶部的分割符号 */
+.separate {
+    color: #d7d8d9;
+    margin: 0 14px;
+    font-size: 20px;
+}
+/* 二级菜单区域 */
+.my-nav {
+    padding: 1rem 0.5rem;
+    background: #fff;
+}
+.my-nav-li {
+    width: 25%;
+    color: #1C82D2;
+    float: left;
+    text-align: center;
+}
+
+.my-nav-i {
+    font-size: 1.8rem;
+}
+
+.my-nav-title {
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.main{
+    height: 100%;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #FAFBFF;
+    /* background: #0087db; */
+    text-align: center;
+    border-top: 1px solid #ececec;
+}
+
+.items {
+    float: left;
+    width:25%;
+    height: 4.5rem;
+
+}
+.items i{
+    font-size: 2rem;
+}
+.items-title{
+    position: relative;
+    top: -6px;
+}
+.items-active{
+    color:#1C82D2;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding:0;
+}

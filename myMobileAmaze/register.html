@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>17对标-设备物联网平台 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/indexBase.css">
+    <link rel="stylesheet" href="assets/css/amazeui.address.min.css">
+    <style>
+        /* .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        } */
+        /* 仅用于本页面 */
+
+        /* .my-tabs-nav a {
+            background: #0e90d2;
+            color: #fff;
+        }
+
+        .am-nav-tabs>li>a {
+            margin-right: 0px;
+        } */
+
+        .get {
+            background: #1E5B94;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .separate{
+            color: #d7d8d9;
+            margin: 0 7px;
+        }
+        .am-dropdown{
+            width:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <header class="am-topbar am-topbar-fixed-top">
+        <div class="am-container">
+            <!-- 左侧的图标 -->
+            <h1 class="am-topbar-brand">
+                <a href="http://www.17duibiao.com" class="am-logo">
+                    <image src="assets/images/blueLogo.png" class="am-img-responsive">
+                </a>
+            </h1>
+
+            <!-- 右侧的按钮 -->
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
+                <span class="am-sr-only">导航切换</span> 
+                <span class="am-icon-bars"></span>
+            </button>
+            <!-- 点击按钮以后的下拉内容 -->
+            <div class="am-collapse am-topbar-collapse" id="collapse-head">
+                <div class="am-topbar-right">
+                    <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="login.html"><span class="am-icon-user"></span> 登录</a>
+                </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="register.html"><span class="am-icon-pencil"></span> 注册</a>
+                </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="index.html"><span class="am-icon-home"></span>首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="get">
+        <div class="am-g">
+            <div class="am-u-lg-12">
+                请根据您的需要，选择注册个人用户还是企业用户
+            </div>
+        </div>
+    </div>
+    <div class="am-margin-top">
+        <div class="am-tabs" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs  my-tabs-nav">
+                <li class="am-active"><a href="#personal">个人用户</a></li>
+                <li><a href="#company">企业用户</a></li>
+            </ul>
+            
+            <div class="am-tabs-bd">
+                <div class="am-tab-panel am-fade am-in am-active" id="personal">
+                    <form action="" class="am-form" id="personal-form">
+                        <fieldset>
+                            <!-- <legend>显示验证提示信息</legend> -->
+                            <div class="am-form-group">
+                                <label for="per-name">用户名：</label>
+                                <input type="text" id="per-name" placeholder="请输入用户名" pattern="^[a-zA-Z][a-zA-Z0-9_]{2,15}$" data-validation-message="字母开头，3-16字符，可包含字母数字下划线" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="per-password">密码：</label>
+                                <input type="password" id="per-password" placeholder="请输入密码" pattern="(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{6,16}" data-validation-message="6-16个字符,须同时包含字母、数字、特殊字符" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="per-repassword">确认密码：</label>
+                                <input type="password" id="per-repassword" placeholder="与上面密码一致" data-equal-to="#per-password" required data-validation-message="请输入确认密码并与密码保持一致" />
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="per-linkman">联系人：</label>
+                                <input type="text" id="per-linkman"  pattern="^[\u4e00-\u9fa5 ]{0,}$|^[A-Za-z][A-Za-z\s]*[A-Za-z]$" data-validation-message="至少两个字符，纯中文或者英文" placeholder="输入联系人" required/>
+                            </div>
+
+                            <div class="am-form-group" id="per-group-address">
+                                <label for="per-address">所在地：</label>
+                                <input  type="text" id="per-address" name="nickname" class="am-form-field am-radius" placeholder="请选择所在地"  data-validation-message="请选择所在地址" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="per-address">详细地址：</label>
+                                <input  type="text" id="per-detail-address" class="am-form-field am-radius" data-validation-message="请输入详细地址" placeholder="请输入详细地址" required>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="per-mobile">手机号</label>
+                                <input type="text" id="per-mobile" placeholder="请输入手机号" pattern="^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$" data-validation-message="请输入正确的手机号" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="per-mail">邮箱</label>
+                                <input type="email" id="per-mail" placeholder="输入邮箱" required data-validation-message="请正确填写您的邮箱地址"/>
+                            </div>
+                        
+                            
+                            <div class="am-form-group am-text-center">
+                                <label class="am-checkbox-inline">
+                                    <input type="checkbox" value="橘子" name="docVlCb" minchecked="1"  data-validation-message="请同意此条款" required checked/>
+                                    <a href="" target="_blank">同意服务条款</a><span class="separate">|</span><a target="_blank" href="">法律声明和隐私权政策</a>
+                                </label>
+                            </div>
+                        
+                            <button class="am-btn am-btn-secondary am-btn-block" type="submit">同意条款并注册</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="am-tab-panel am-fade" id="company">
+                    <form action="" class="am-form" id="company-form">
+                        <fieldset>
+                            <!-- <legend>显示验证提示信息</legend> -->
+                            <div class="am-form-group">
+                                <label for="com-name">用户名：</label>
+                                <input type="text" id="com-name" placeholder="请输入用户名" pattern="^[a-zA-Z][a-zA-Z0-9_]{2,15}$" data-validation-message="字母开头，3-16字符，可包含字母数字下划线" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-password">密码：</label>
+                                <input type="password" id="com-password" placeholder="请输入密码" pattern="(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{6,16}" data-validation-message="6-16个字符,须同时包含字母、数字、特殊字符" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-repassword">确认密码：</label>
+                                <input type="password" id="com-repassword" placeholder="与上面密码一致" data-equal-to="#com-password" required data-validation-message="请输入确认密码并与密码保持一致" />
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-company-name">企业名称：</label>
+                                <input type="text" id="com-company-name" placeholder="请输入企业名称" pattern="^[a-zA-Z0-9().\u4e00-\u9fa5]{4,16}$" data-validation-message="4-16字符，可包含中英文数字" required/>
+                            </div>
+                        
+                            <div class="am-form-group">
+                                <label for="com-license">营业执照：</label>
+                                <input type="text" id="com-license" placeholder="请输入营业执照" pattern="^\d{15}$" data-validation-message="请输入15位营业执照号码" required />
+                            </div>
+
+                            <div class="am-form-group" id="com-group-address">
+                                <label for="com-address">所在地：</label>
+                                <input  type="text" id="com-address" class="am-form-field am-radius" placeholder="请选择所在地"  data-validation-message="请选择所在地址" required />
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-address">详细地址：</label>
+                                <input  type="text" id="com-detail-address" class="am-form-field am-radius" data-validation-message="请输入详细地址" placeholder="请输入详细地址" required>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-industry">所属行业</label>
+                                <select id="com-industry"  data-am-selected="{maxHeight: 100}" data-validation-message="请选择您所在的行业" required>
+                                    <option value=""></option>
+                                    <option value="1">计算机硬件及网络设备</option>
+                                    <option value="2">计算机软件</option>
+                                    <option value="3">IT服务（系统/数据/维护）</option>
+                                    <option value="4">互联网/电子商务</option>
+                                    <option value="5">通讯（设备/运营/增资服务）</option>
+                                    <option value="6">电子技术/半导体/集成电路</option>
+                                    <option value="7">仪器仪表</option>
+                                    <option value="8">工业自动化</option>
+                                    <option value="9">大型设备/机电设备/重工业</option>
+                                    <option value="10">医疗设备/器械</option>
+                                    <option value="11">能源/矿产/采掘/冶炼</option>
+                                    <option value="12">服装服饰/纺织/皮革/家具/家电</option>
+                                    <option value="13">家居/室内设计/装饰装潢</option>
+                                    <option value="14">加工制造</option>
+                                    <option value="15">汽车/摩托车</option>
+                                    <option value="16">交通/物流/运输</option>
+                                    <option value="17">网络游戏</option>
+                                    <option value="18">电气/电力/水利</option>
+                                    <option value="19">石油/石化/化工</option>
+                                    <option value="20">办公用品及设备</option>
+                                    <option value="21">礼品/玩具/工艺美术/收藏品</option>
+                                    <option value="22">食品/饮料/烟酒/化妆品</option>
+                                    <option value="23">金融/银行/投资/基金/证据</option>
+                                    <option value="24">保险</option>
+                                    <option value="25">房地产/建筑/建材/工程</option>
+                                    <option value="26">物业管理/商业中心</option>
+                                    <option value="27">广告/会展/公关/市场推广</option>
+                                    <option value="28">媒体/出版/影视/文化/艺术</option>
+                                    <option value="29">印刷/包装/造纸</option>
+                                    <option value="30">咨询/管理产业/法律/财会</option>
+                                    <option value="31">教育/培训</option>
+                                    <option value="32">检验/检测/认证</option>
+                                    <option value="33">中介服务</option>
+                                    <option value="34">贸易/进出口</option>
+                                    <option value="35">零售/批发</option>
+                                    <option value="36">医药/生物工程</option>
+                                    <option value="37">医疗/护理/美容/保健</option>
+                                    <option value="38">酒店/餐饮</option>
+                                    <option value="39">娱乐/休闲/体育</option>
+                                    <option value="40">旅游/度假</option>
+                                    <option value="41">航空/航天</option>
+                                    <option value="42">学术/科研</option>
+                                    <option value="43">政府/公共事业/非盈利机构</option>
+                                    <option value="44">环保</option>
+                                    <option value="45">农/林/牧/渔</option>
+                                    <option value="46">跨领域经营</option>
+                                    <option value="47">其它</option>
+                                </select>
+                                <span class="am-form-caret"></span>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-linkman">联系人：</label>
+                                <input type="text" id="com-linkman"  pattern="^[\u4e00-\u9fa5 ]{0,}$|^[A-Za-z][A-Za-z\s]*[A-Za-z]$" data-validation-message="至少两个字符，纯中文或者英文" placeholder="请输入联系人" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-mobile">手机号</label>
+                                <input type="text" id="com-mobile" placeholder="请输入手机号" pattern="^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$" data-validation-message="请输入正确的手机号" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-tel">联系电话</label>
+                                <input type="text" id="col-tel" placeholder="请输入联系电话" pattern="^0\d{2,3}-?\d{7,8}$" data-validation-message="请输入正确的联系电话" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="com-mail">邮箱</label>
+                                <input type="email" id="com-mail" placeholder="输入邮箱" required data-validation-message="请正确填写您的邮箱地址"/>
+                            </div>
+                        
+                            
+                            <div class="am-form-group am-text-center">
+                                <label class="am-checkbox-inline">
+                                    <input type="checkbox" value="橘子" name="docVlCb" minchecked="1"  data-validation-message="请同意此条款" required checked/>
+                                    <a href="" target="_blank">同意服务条款</a><span class="separate">|</span><a target="_blank" href="">法律声明和隐私权政策</a>
+                                </label>
+                            </div>
+                        
+                            <button class="am-btn am-btn-secondary am-btn-block" type="submit">同意条款并注册</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部的版权 -->
+    <footer class="footer">
+        <p>© 2017 <a href="http://www.17duibiao.com" target="_blank">杭州远方光电信息股份有限公司</a>版权所有 </p>
+        <p>浙ICP备05003081号-5</p>
+    </footer>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/address.min.js"></script>
+    <script>
+        $(function () {
+            //个人注册表单验证
+            $('#personal-form').validator({
+                onValid: function (validity) {
+                    $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+                },
+
+                onInValid: function (validity) {
+                    var $field = $(validity.field);
+                    var $group = $field.closest('.am-form-group');
+                    var $alert = $group.find('.am-alert');
+                    // 使用自定义的提示信息 或 插件内置的提示信息
+                    var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+                    if (!$alert.length) {
+                        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+                            appendTo($group);
+                    }
+
+                    $alert.html(msg).show();
+                }
+            });
+
+            //个人注册省市县
+            $("#per-group-address").address({
+                scrollToCenter: true,
+                footer: true,
+                selectEnd: function (json) {
+                    console.log(JSON.stringify(json));
+                }
+            });
+            //公司注册表单验证
+            $('#company-form').validator({
+                onValid: function (validity) {
+                    $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+                },
+
+                onInValid: function (validity) {
+                    var $field = $(validity.field);
+                    var $group = $field.closest('.am-form-group');
+                    var $alert = $group.find('.am-alert');
+                    // 使用自定义的提示信息 或 插件内置的提示信息
+                    var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+                    if (!$alert.length) {
+                        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+                            appendTo($group);
+                    }
+
+                    $alert.html(msg).show();
+                }
+            });
+
+            //公司注册省市县
+            $("#com-group-address").address({
+                scrollToCenter: true,
+                footer: true,
+                selectEnd: function (json) {
+                    console.log(JSON.stringify(json));
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

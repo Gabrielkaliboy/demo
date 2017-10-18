@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app" v-html="rawHtml">
-        {{message}}
+    <div id="app">
+        <div v-html="rawHtml"></div>
+        <div v-html="aaa"></div>
     </div>
 </body>
 <script src="https://unpkg.com/vue"></script>
@@ -16,13 +17,9 @@
     var vm=new Vue({
         el:"#app",
         data:{
-            message:"hello world",
-            rawHtml:"<h1>我变大了</h1>"
+            rawHtml:"<h1>我变大了</h1>",
+            aaa:'<h3 style="background:#f00;">我是h3</h3>',
         },
     })
-    setTimeout(function() {
-        vm.message="<h1>我变大了</h1>";
-        alert("修改了message的值,message里面带了html标签")
-    }, 3000);
 </script>
 </html>

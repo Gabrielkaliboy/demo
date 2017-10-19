@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <div>输入的姓名是：{{name}}</div>
-        <input type="text" placeholder="输入名字" v-model="name" v-bind:disabled="{'disables':status}">
+        <input type="text" placeholder="输入名字" v-model="name" v-bind:disabled="{'disables':status}" v-on:click="">
         <input type="button" value="修改" v-on:click="status=0">
         <input type="button" value="确定" @click="status=1">
     </div>

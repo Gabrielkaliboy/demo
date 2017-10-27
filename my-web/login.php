@@ -3,7 +3,7 @@ session_start();
 
 //注销登录
 //不这么写会报错@$logout=$_GET['action'];
-$logout=$_GET['action'];
+@$logout=$_GET['action'];
 if($logout== "logout"){
 	unset($_SESSION['userid']);
 	unset($_SESSION['username']);

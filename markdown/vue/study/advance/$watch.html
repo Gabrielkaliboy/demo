@@ -20,6 +20,7 @@
     })
     console.log(vm.$data==data,vm.$el==document.getElementById("app"))
     vm.$watch("message",function(newValue,oldValue){
+        //$watch用来监控message，如果message的值发生改变，就会触发$watch这个函数
         alert("message被改变了")
     })
 </script>

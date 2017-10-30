@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>发布检测需求</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/research-detection/research-detection-release.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="research-detection-index.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                            发布检测需求
+                    </span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="main">
+        <form action="" class="am-form" id="research-form" onsubmit="return false;">
+            <fieldset>
+                <!-- <legend>显示验证提示信息</legend> -->
+                <div class="am-form-group" id="com-industry-group">
+                    <label for="research-release">我要发布：</label>
+                    <select id="com-industry"  data-am-selected="{maxHeight: 100}">
+                        <option value=""></option>
+                        <option value="1">检测需求</option>
+                        <option value="2">相关资讯</option>
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+                <div class="am-form-group">
+                    <label for="research-name">样品名称：</label>
+                    <input type="text" id="research-name" minlength="2" maxlength="16" placeholder="请输入样品名称" pattern="" data-validation-message="必填项，2-16字符"
+                        required/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-standard">参照标准：</label>
+                    <input type="text" id="research-standard"  placeholder="请输入参照标准" />
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-product">测试项目需求：</label>
+                    <textarea id="research-product" required maxlength="200" placeholder="请输入测试项目需求" data-validation-message="200个字符以内" pattern=""></textarea>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-report">测试报告需求：</label>
+                    <textarea id="research-report" required  maxlength="200" placeholder="请输入测试报告需求" data-validation-message="200个字符以内" pattern=""></textarea>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-customer">客户名称：</label>
+                    <input type="text" id="research-customer" required minlength="" maxlength="" placeholder="请输入客户名称" pattern="" data-validation-message="必填，全中文或者全英文"
+                        required/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-linkman">联系人：</label>
+                    <input type="text" id="research-linkman" required minlength="8" maxlength="32" placeholder="请输入联系人" pattern="" data-validation-message="必填，8-32字符"
+                        required/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-tel">联系电话：</label>
+                    <input type="text" id="research-tel" required minlength="8" maxlength="32" placeholder="请输入联系电话" pattern="" data-validation-message="必填，8-32字符"
+                        required/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-address">联系地址：</label>
+                    <input type="text" id="research-address" required minlength="8" maxlength="32" placeholder="请输入联系地址" pattern="" data-validation-message="必填，8-32字符"
+                        required/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-mail">电子邮件：</label>
+                    <input type="text" id="research-mail" required minlength="8" maxlength="32" placeholder="请输入电子邮件" pattern="" data-validation-message="必填，8-32字符"
+                        required/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="research-remarks">备注：</label>
+                    <textarea id="research-remarks" maxlength="150" data-validation-message="最多150字符"></textarea>
+                </div>
+                <button class="am-btn am-btn-secondary am-btn-block" type="submit" id="research-btn1">确定</button>
+            </fieldset>
+        </form>
+    </div>
+    <!-- 底部的按钮 -->
+    <footer class="footer">
+        <div class="menu am-cf">
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" id="research-btn2">确定</button>
+        </div>
+    </footer>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <!-- 上线前删除 -->
+    <script src="../assets/deleteBeforeLine/mock-min.js"></script>
+    <!-- 上线前删除 -->  
+    <script>
+        $(function () {
+            // 按钮转移
+            $("#research-btn2").click(function(){
+                $("#research-btn1").click();
+            })
+            //个人注册表单验证
+            $('#research-form').validator({
+                onValid: function (validity) {
+                    $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+
+                },
+
+                onInValid: function (validity) {
+                    var $field = $(validity.field);
+                    var $group = $field.closest('.am-form-group');
+                    var $alert = $group.find('.am-alert');
+                    // 使用自定义的提示信息 或 插件内置的提示信息
+                    var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+                    if (!$alert.length) {
+                        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+                            appendTo($group);
+                    }
+
+                    $alert.html(msg).show();
+                },
+                keyboardEvents: 'focusout, change,keyup, focusin', // keyup, focusin
+                submit: function () {
+                    var formValidity = this.isFormValid();
+                    $.when(formValidity).then(function () {
+                        // 验证成功的逻辑
+                        $.ajax({
+                        url: "1.php",
+                        type: "POST",
+                        data: {
+                            "softAdd-name": $("#softAdd-name").val(),
+                            "softAdd-sequence": $("#softAdd-sequence").val(),
+                            "softAdd-coding": $("#softAdd-coding").val(),
+                            "softAdd-remarks": $("#softAdd-remarks").val()
+                        },
+                        beforeSend: function () {
+                            console.log(this.data);
+                        },
+                        dataType: "json",
+                        success: function (data, textStatus) {
+                            location.href='menu-Softauthorization.html';
+                        }
+                    })
+                    }, function () {
+                        // 验证失败的逻辑
+                        console.log("失败")
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

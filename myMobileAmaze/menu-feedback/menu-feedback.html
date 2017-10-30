@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>反馈信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/amazeui.datetimepicker-se.min.css">
+    <link rel="stylesheet" href="../assets/css/menu-feedback/menu-feedback.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="../customer-center.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                        反馈信息
+                    </span>
+                </a>
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-dropdown2" data-am-menu-collapse>
+            <a href="javascript: void(0)" class="am-menu-toggle" id="my-btn-search">
+                <i class="am-menu-toggle-icon am-icon-search"></i>
+            </a>
+            <div class="am-collapse am-menu-nav">
+                <div class="am-g am-padding-horizontal-xs am-margin-bottom-sm">
+                    <select class="am-u-sm-12 my-select">
+                        <option value="">请选择留言状态</option>
+                        <option value="option1">未读</option>
+                        <option value="option2">已读</option>
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+                <ul class=" am-thumbnails am-text-center">
+                    <li>  
+                        <div class=" am-form-icon">
+                            <i class="am-icon-calendar"></i>
+                            <input type="text" class="am-form-field" placeholder="开始时间" id="startTime">
+                        </div>
+                    </li>
+                </ul>
+                <ul class=" am-thumbnails am-text-center">
+                    <li>  
+                        <div class=" am-form-icon">
+                            <i class="am-icon-calendar"></i>
+                            <input type="text" class="am-form-field" placeholder="截止时间" id="endTime">
+                        </div>
+                    </li>
+                </ul>
+                <ul class=" am-thumbnails am-avg-sm-2 am-text-center">
+                    <li>  
+                        <input type="text" class="am-form-field" placeholder="输入关键字" id="keyWorld">
+                    </li>
+                    <li>
+                        <button type="button" class="am-btn am-btn-secondary" id="my-btn-sure">确定</button>
+                    </li>
+                </ul>
+            </div>
+
+    
+            <!-- <ul class="am-menu-nav am-avg-sm-3 am-collapse">
+                <li class="">
+                    <a href="##" class="">申请中</a>
+                </li>
+                <li class="">
+                    <a href="##" class="">已通过</a>
+                </li>
+                <li class="">
+                    <a href="##" class="">未通过</a>
+                </li>
+                <li class="">
+                    <a href="menu-Softauthorization-search.html" class="">软件名称</a>
+                </li>
+                <li class="">
+                    <a href="##" class="">起止时间</a>
+                </li>
+            </ul> -->
+        </nav>
+    </div>
+    <div class="main">
+        <div class="my-licence am-cf am-margin-bottom-xs am-padding-horizontal-sm">
+            <div class="am-g am-padding-vertical-xs">
+                <div class="am-u-sm-2 am-padding-0  am-show-sm-only">
+                    状态
+                </div>
+                <div class="am-u-sm-2 am-show-sm-up am-hide-sm-only">
+                    状态
+                </div>
+                <div class="am-u-sm-10 am-padding-0">
+                    <div class="am-g">
+                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-truncate am-text-center">留言内容</span>
+                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-truncate am-text-center">留言人</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-licence am-cf am-padding-horizontal-sm" id="my-licence-insert">
+            <!-- <div class="am-g am-padding-vertical-xs my-licence-item">
+                <div class="am-u-sm-2 am-padding-0 am-text-xxl am-show-sm-only">
+                    <i class="am-icon-check"></i>
+                </div>
+                <div class="am-u-sm-2 am-text-xxl am-show-sm-up am-hide-sm-only">
+                    <i class="am-icon-check"></i>
+                </div>
+                <div class="am-u-sm-10 am-padding-0">
+                    <div class="am-g">
+                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-truncate am-text-center ">HaasSuitdddddde</span>
+                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-truncate am-text-center">YG112048T120dd30017</span>
+                    </div>
+                    <div class="am-g my-font">
+                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-center">2017.10.10</span>
+                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-center">2017.10.10-2020.10.10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-g am-padding-vertical-xs my-licence-item">
+                <div class="am-u-sm-2 am-padding-0 am-text-xxl am-show-sm-only">
+                    <i class="am-icon-close"></i>
+                </div>
+                <div class="am-u-sm-2 am-text-xxl am-show-sm-up am-hide-sm-only">
+                    <i class="am-icon-close"></i>
+                </div>
+                <div class="am-u-sm-10 am-padding-0">
+                    <div class="am-g">
+                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-truncate am-text-center ">HaasSuitdddddde</span>
+                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-truncate am-text-center">YG112048T120dd30017</span>
+                    </div>
+                    <div class="am-g my-font">
+                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-center">2017.10.10</span>
+                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-center">未通过</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-g am-padding-vertical-xs my-licence-item">
+                <div class="am-u-sm-2 am-padding-0 am-text-xxl am-show-sm-only">
+                    <i class="am-icon-exchange"></i>
+                </div>
+                <div class="am-u-sm-2 am-text-xxl am-show-sm-up am-hide-sm-only">
+                    <i class="am-icon-exchange"></i>
+                </div>
+                <div class="am-u-sm-10 am-padding-0">
+                    <div class="am-g">
+                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-truncate am-text-center ">HaasSuitdddddde</span>
+                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-truncate am-text-center">YG112048T120dd30017</span>
+                    </div>
+                    <div class="am-g my-font">
+                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-center">2017.10.10</span>
+                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-center">审核中</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- 底部的按钮 -->
+    <footer class="footer">
+        <div class="menu am-cf">
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" onclick="location.href='menu-feedback-add.html';">添加留言</button>
+        </div>
+    </footer>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/zh-cn.js"></script>
+    <script src="../assets/js/amazeui.datetimepicker-se.min.js"></script>
+    
+    <!-- 上线前删除 -->
+    <script src="../assets/deleteBeforeLine/mock-min.js"></script>
+    <!-- 上线前删除 -->  
+    <script>
+        var menuList = [
+            {
+                "id": 100102,
+                "status": 1,//已阅读
+                "text": "哈哈哈哈哈哈哈哈哈哈哈哈哈哈",//留言内容
+                "people": "张三",//留言人
+                "leaveTime": "2017.10.20",//留言时间
+                "replayTime": "2017.10.22",//回复时间
+            },
+            {
+                "id": 100101,
+                "status": 0,//未阅读
+                "text": "哈哈哈哈哈哈哈哈哈哈哈哈哈哈",//留言内容
+                "people": "张三",//留言人
+                "leaveTime": "2017.10.20",//留言时间
+                "replayTime": "未回复",//回复时间
+            },
+        ];
+
+        Mock.mock('http://g.cn', menuList);
+        $.ajax({
+            url: "http://g.cn",
+            dataType: "json",
+            success: function (data, textStatus) {
+                var str = "";
+                data.forEach(function (value, index) {
+                    var icon = "";
+                    switch (value.status) {
+                        case 0:
+                            icon = "am-icon-eye-slash";
+                            break;
+                        case 1:
+                            icon = "am-icon-eye";
+                            break;
+                    };
+                    str += '<div class="am-g am-padding-vertical-xs my-licence-item" itemId=\"' + value.id + '\"><div class="am-u-sm-2 am-padding-0 am-text-xxl am-show-sm-only"><i class=\"' +
+                        icon + '\"></i></div><div class="am-u-sm-2 am-text-xxl am-show-sm-up am-hide-sm-only"><i class=\"' + icon +
+                        '\"></i></div><div class="am-u-sm-10 am-padding-0"><div class="am-g"><span class="am-u-sm-4 am-padding-horizontal-xs am-text-truncate am-text-center ">' +
+                        value.text + '</span><span class="am-u-sm-8 am-padding-horizontal-xs am-text-truncate am-text-center">' +
+                        value.people + '</span></div><div class="am-g my-font"><span class="am-u-sm-4 am-padding-horizontal-xs am-text-center">' +
+                        value.leaveTime + '</span><span class="am-u-sm-8 am-padding-horizontal-xs am-text-center">' +
+                        value.replayTime + '</span></div></div></div>';
+                });
+                $("#my-licence-insert").html(str);
+                $(".my-licence-item").on("click", function () {
+                    var itemId = $(this).attr("itemid");
+                    openSoftDetail(itemId);
+                })
+            }
+        })
+
+        function openSoftDetail(itemid) {
+            location.href = "menu-feedback-detail.html?itemid=" + itemid;
+        }
+
+
+
+        $(function () {
+            // 日期选择设置，后者不能早于前者
+            var $dp6 = $('#startTime');
+            var $dp7 = $('#endTime');
+            $dp6.datetimepicker();
+            $dp7.datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $dp6.on('dp.change', function (e) {
+                $dp7.data('DateTimePicker').minDate(e.date);
+            });
+            $dp7.on('dp.change', function (e) {
+                $dp6.data('DateTimePicker').maxDate(e.date);
+            });
+
+
+
+            // 点击确定关闭搜索下拉菜单
+            $("#my-btn-sure").click(function(){
+                $("#my-btn-search").click();
+            })
+        });
+
+    </script>
+</body>
+
+</html>

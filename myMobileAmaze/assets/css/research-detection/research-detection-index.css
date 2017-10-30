@@ -1,0 +1,67 @@
+/* 登录以后的customer-center*/
+body{
+    background:#E7E7E7;
+}
+.am-logo {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.am-topbar {
+    background: #1C82D2;
+}
+
+#collapse-head a {
+    color: #0087db;
+}
+
+.my-btn-primary {
+    background-color: #ffffff;
+    border-color: #0e90d2;
+}
+
+/* 研发检测模块控制 */
+.detail-h2 {
+    text-align: center;
+    font-size: 150%;
+}
+
+.am-panel-bd {
+    padding: 1rem;
+}
+
+.my-nav-li {
+    width: 33.3%;
+    color: #1C82D2;
+    float: left;
+    text-align: center;
+}
+
+.my-nav-i {
+    font-size: 2.8rem;
+}
+
+.my-nav-title {
+    color: #000;
+    font-size: 1.5rem;
+}
+.main{
+    height: 100%;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #FAFBFF;
+    /* background: #0087db; */
+    text-align: center;
+    border-top: 1px solid #ececec;
+}
+.menu{
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding:0;
+}

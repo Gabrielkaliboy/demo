@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>17对标-设备物联网平台 </title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta name="format-detection" content="telephone=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -27,7 +27,7 @@
       </h1>
 
       <!-- 右侧的按钮 -->
-      <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
+      <button id="pullDown" class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
         <span class="am-sr-only">导航切换</span> 
         <span class="am-icon-bars"></span>
       </button>
@@ -37,7 +37,7 @@
           <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="login.html"><span class="am-icon-user"></span> 登录</a>
         </div>
         <div class="am-topbar-right">
-          <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="register.html"><span class="am-icon-pencil"></span> 注册</a>
+          <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="register/register.html"><span class="am-icon-pencil"></span> 注册</a>
         </div>
         <div class="am-topbar-right">
           <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="index.html"><span class="am-icon-home"></span>首页</a>
@@ -62,7 +62,8 @@
             集设备在线采集、远程控制、无线传输、数据处理、预警信息发布、决策支持、一体化控制等功能于一体的物联网系统
         </p>
         <p>
-          <a href="http://www.17duibiao.com/documentcenter" class="am-btn am-btn-sm get-btn">快速开始√</a>
+          <a href="http://www.17duibiao.com/documentcenter" class="am-btn am-btn-sm get-btn">快速开始</a>
+          <a href="research-detection/research-detection-index.html" class="am-btn am-btn-sm get-btn">研发检测</a>
         </p>
       </div>
     </div>
@@ -185,6 +186,16 @@
   </footer>
   <script src="assets/js/jquery-1.11.3.min.js"></script>
   <script src="assets/js/amazeui.min.js"></script>
+  <script>
+    $(document).on("click", function (e) {
+      $("#collapse-head").css("display", "none")
+    });
+    $("#pullDown").click(function (e) {
+      //阻止默认事件
+      e.stopPropagation();
+      $("#collapse-head").css("display", "block");
+    });
+  </script>
 </body>
 
 </html>

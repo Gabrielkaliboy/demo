@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>详情-回复</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/admin-userCenter/admin-feedback-detail.css"/>
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="admin-userCenter-feedback.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                        回复
+                    </span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="main">
+        <form action="" class="am-form" id="menu-feedback-detail" onsubmit="return false;">
+            <fieldset>
+                <!-- <legend>显示验证提示信息</legend> -->
+                <div class="am-form-group">
+                    <label for="feedback-detail-title">标题</label>
+                    <input type="text" disabled id="feedback-detail-title"/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="feedback-detail-time">时间</label>
+                    <input type="text" disabled id="feedback-detail-time"/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="feedback-detail-message">反馈信息</label>
+                    <textarea disabled id="feedback-detail-message"></textarea>
+                </div>
+                <div class="am-form-group">
+                    <label for="feedback-detail-replay">快速回复</label>
+                    <textarea  id="feedback-detail-replay"></textarea>
+                </div>
+                <button class="am-btn am-btn-secondary am-btn-block am-disabled" type="submit" id="feedback-Detail-btn">回复</button>
+            </fieldset>
+        </form>
+        <div class="am-padding-horizontal-sm">
+            <div class="feedback-detail-item">
+                <div class="am-g">
+                    <div class="am-u-sm-6 detail-item-title">admin</div>
+                    <div class="am-u-sm-6 detail-item-replayTime">2012.10.12</div>
+                </div>
+                <div class="detail-item-replay">
+                    你好，你的设备出了一些问题
+                </div>
+            </div>
+
+            <div class="feedback-detail-item">
+                <div class="am-g">
+                    <div class="am-u-sm-6 detail-item-title">bigboss</div>
+                    <div class="am-u-sm-6 detail-item-replayTime">2012.10.12</div>
+                </div>
+                <div class="detail-item-replay">
+                    我的设备好像有问题
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script>
+        $(function () {
+            // 回复按钮的启用禁用
+            $("#feedback-detail-replay").focusin(function(){
+                $("#feedback-Detail-btn").removeClass("am-disabled");
+            });
+            $("#feedback-detail-replay").focusout(function(){
+                if($(this).val()!==""){
+                    $("#feedback-Detail-btn").removeClass("am-disabled");
+                }else(
+                    $("#feedback-Detail-btn").addClass("am-disabled")
+                )
+            })
+        });
+
+    </script>
+</body>
+
+</html>

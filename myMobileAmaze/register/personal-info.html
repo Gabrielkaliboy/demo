@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人信息修改</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/register/enterprise-info.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="../customer-center.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                        个人信息修改
+                    </span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="main">
+        <form action="" class="am-form" id="company-form" onsubmit="return false;">
+            <fieldset>
+                <!-- <legend>显示验证提示信息</legend> -->
+                <div class="am-form-group" id="com-group-address">
+                    <label for="com-address">所在地：</label>
+                    <input  type="text" disabled  id="com-address" class="am-form-field am-radius" placeholder="请选择所在地"  data-validation-message="请选择所在地址" required />
+                </div>
+
+
+                <div class="am-form-group">
+                    <label for="com-mobile">手机号</label>
+                    <input type="text" disabled id="com-mobile" placeholder="请输入手机号" pattern="^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$" data-validation-message="请输入正确的手机号" required/>
+                </div>
+
+
+                <div class="am-form-group">
+                    <label for="com-mail">邮箱</label>
+                    <input type="email"  disabled id="com-mail" placeholder="输入邮箱" required data-validation-message="请正确填写您的邮箱地址"/>
+                </div>
+
+
+                <div class="am-form-group">
+                    <label for="com-linkman">联系人：</label>
+                    <input type="text" disabled id="com-linkman"  pattern="^[\u4e00-\u9fa5 ]{0,}$|^[A-Za-z][A-Za-z\s]*[A-Za-z]$" data-validation-message="至少两个字符，纯中文或者英文" placeholder="请输入联系人" required/>
+                </div>
+
+            
+                <button class="am-btn am-btn-secondary am-btn-block am-disabled" type="submit" id="com-submit" style="display:none;"></button>
+            </fieldset>
+        </form>
+    </div>
+    <!-- 底部的按钮 -->
+    <footer class="footer">
+        <div class="menu am-cf">
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" id="com-btn">编辑</button>
+        </div>
+    </footer>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/address.min.js"></script>
+    <script>
+        $(function () {
+            //公司注册表单验证
+            $('#company-form').validator({
+                onValid: function (validity) {
+                    $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+                },
+
+                onInValid: function (validity) {
+                    var $field = $(validity.field);
+                    var $group = $field.closest('.am-form-group');
+                    var $alert = $group.find('.am-alert');
+                    // 使用自定义的提示信息 或 插件内置的提示信息
+                    var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+                    if (!$alert.length) {
+                        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+                            appendTo($group);
+                    }
+
+                    $alert.html(msg).show();
+                },
+
+                keyboardEvents: 'focusout, change,keyup, focusin', // keyup, focusin
+
+                submit: function () {
+                    var formValidity = this.isFormValid();
+                    $.when(formValidity).then(function () {
+                        // 验证成功的逻辑
+                        $.ajax({
+                        url: "1.php",
+                        type: "POST",
+                        data: {
+                            "softAdd-name": $("#softAdd-name").val(),
+                            "softAdd-sequence": $("#softAdd-sequence").val(),
+                            "softAdd-coding": $("#softAdd-coding").val(),
+                            "softAdd-remarks": $("#softAdd-remarks").val()
+                        },
+                        beforeSend: function () {
+                            console.log(this.data);
+                        },
+                        dataType: "json",
+                        success: function (data, textStatus) {
+                            $("input,#com-industry-group button").attr("disabled");
+                            $("#com-btn").text("编辑");
+                        }
+                    })
+                    }, function () {
+                        // 验证失败的逻辑
+                        console.log("失败")
+                    });
+                }
+            });
+
+            //公司注册省市县
+            $("#com-group-address").address({
+                scrollToCenter: true,
+                footer: true,
+                selectEnd: function (json) {
+                    console.log(JSON.stringify(json));
+                }
+            });
+            
+            $("#com-btn").on("click",function(){
+                if( $(this).text()=="编辑"){
+                    $("input,#com-industry-group button").removeAttr("disabled");
+                    $(this).text("确定");
+                }else{
+                    $("#com-submit").click();
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

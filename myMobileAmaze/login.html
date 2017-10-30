@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>17对标-设备物联网平台 </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="format-detection" content="telephone=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -40,7 +40,7 @@
             </h1>
 
             <!-- 右侧的按钮 -->
-            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
+            <button id="pullDown" class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
                 <span class="am-sr-only">导航切换</span> 
                 <span class="am-icon-bars"></span>
             </button>
@@ -75,7 +75,7 @@
             </div>
             <button type="submit" class="am-btn am-btn-secondary am-btn-block" onclick="location.href='customer-center.html'">登录</button>
             <div class="am-cf am-margin-vertical am-u-sm-10 am-u-sm-centered">
-                <a class="am-fl" href="/my/register">免费注册</a>
+                <a class="am-fl" href="register/register.html">免费注册</a>
                 <a class="am-fr" href="/my/forgetpassword">忘记密码了</a>
             </div>
         </form>
@@ -88,6 +88,16 @@
     </footer>
     <script src="assets/js/jquery-1.11.3.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
+    <script>
+        $(document).on("click", function (e) {
+          $("#collapse-head").css("display", "none")
+        });
+        $("#pullDown").click(function (e) {
+          //阻止默认事件
+          e.stopPropagation();
+          $("#collapse-head").css("display", "block");
+        });
+      </script>
 </body>
 
 </html>

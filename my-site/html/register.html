@@ -3,14 +3,53 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>注册</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/register.css">
 </head>
 <body>
-
+    <div class="container col-lg-4 col-md-6  col-sm-8  col-xs-12 horizontal-vertical">
+        <form class="form-horizontal center-block">
+            <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">用户名：</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="username" placeholder="请输入用户名" name="username">
+                    <span id="helpBlock" class="help-block">2-16位中文或者英文</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">密码：</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="repassword" class="col-sm-3 control-label">确认密码：</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="repassword" placeholder="请输入密码" name="repassword">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="e-mail" class="col-sm-3 control-label">邮箱：</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" name="e-mail" id="e-mail" placeholder="请输入电子邮箱">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="QQ" class="col-sm-3 control-label">QQ：</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" name="QQ" id="QQ" placeholder="请输入您的QQ号">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-9">
+                    <button type="submit" class="btn btn-primary">注册</button>
+                </div>
+            </div>
+        </form>
+    </div>
 <script src="../assets/js/jquery-1.11.3.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 </body>

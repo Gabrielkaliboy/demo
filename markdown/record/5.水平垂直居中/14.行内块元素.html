@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>行内块级元素</title>
+    <style>
+        .container {
+            text-align: center;
+            overflow: auto;
+            background: #00f;
+            height: 200px;
+        }
+    
+        .container:after,
+        .div1 {
+            display: inline-block;
+            vertical-align: middle;
+            background: #ff0;
+        }
+    
+        .container:after {
+            content: '';
+            height: 100%;
+            margin-left: -0.25em;
+            /* To offset spacing. May vary by font */
+        }
+    
+        .div1 {
+            max-width: 99%;
+            background: #f00;
+            /* Prevents issues with long content causes the content block to be pushed to the top */
+            /* max-width: calc(100% - 0.25em) /* Only for IE9+ */
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="div1">
+       ddddddd
+    </div>
+</div>
+</body>
+
+</html>

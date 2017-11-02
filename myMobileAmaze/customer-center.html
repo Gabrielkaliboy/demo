@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>17对标-设备物联网平台 </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="format-detection" content="telephone=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />  
@@ -26,14 +26,17 @@
             </h1>
 
             <!-- 右侧的按钮 -->
-            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
+            <button id="pullDown" class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
                 <span class="am-sr-only">导航切换</span> 
                 <span class="am-icon-bars"></span>
             </button>
             <!-- 点击按钮以后的下拉内容 -->
             <div class="am-collapse am-topbar-collapse" id="collapse-head">
                 <div class="am-topbar-right">
-                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="login.html"><span class="am-icon-user"></span> 企业信息</a>
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="register/enterprise-info.html"><span class="am-icon-user"></span> 企业信息</a>
+                </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="register/personal-info.html"><span class="am-icon-user"></span> 个人信息</a>
                 </div>
                 <div class="am-topbar-right">
                     <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="register.html"><span class="am-icon-pencil"></span> 密码修改</a>
@@ -41,17 +44,20 @@
                 <div class="am-topbar-right">
                     <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="index.html"><span class="am-icon-close"></span>注销登录</a>
                 </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="index.html"><span class="am-icon-home"></span>首页</a>
+                </div>
             </div>
         </div>
     </header>
     <div class="main am-g">
         <div class="my-quick am-cf am-margin-bottom">
             <ul>
-                <li class="my-quick-li">
+                <li class="my-quick-li" onclick="location.href='menu-device/menu-device-key.html';">
                     <div class="my-quick-i"><i class="am-icon-expeditedssl"></i></div>
                     <div class="my-quick-title">授权秘钥</div>
                 </li>
-                <li class="my-quick-li">
+                <li class="my-quick-li" onclick="location.href='menu-feedback/menu-feedback.html';">
                     <div class="my-quick-i"><i class="am-icon-comment-o"></i><span class="my-quick-num">1</span></div>
                     <div class="my-quick-title">未读留言</div>
                 </li>
@@ -59,7 +65,7 @@
                     <div class="my-quick-i"><i class="am-icon-bell-o"></i><span class="my-quick-num">1</span></div>
                     <div class="my-quick-title">校准提醒</div>
                 </li>
-                <li class="my-quick-li">
+                <li class="my-quick-li" onclick="location.href='menu-Softauthorization/menu-Softauthorization.html';">
                     <div class="my-quick-i"><i class="am-icon-key"></i></div>
                     <div class="my-quick-title">申请授权</div>
                 </li>
@@ -138,13 +144,13 @@
                 "id": "menu-feedback",
                 "title": "意见反馈",
                 "icon": "am-icon-envelope-o",
-                "src":"menu-feedback/menu-feedback-index.html"
+                "src":"menu-feedback/menu-feedback.html"
             },
             {
                 "id": "menu-Authorization ",
-                "title": "授权申请",
-                "icon": "am-icon-asl-interpreting",
-                "src":"menu-Softauthorization/menu-Softauthorization-index.html"
+                "title": "申请授权",
+                "icon": "am-icon-key",
+                "src":"menu-Softauthorization/menu-Softauthorization.html"
             }
         ];
 
@@ -161,6 +167,14 @@
             }
         })
         
+        $(document).on("click", function (e) {
+      $("#collapse-head").css("display", "none")
+    });
+    $("#pullDown").click(function (e) {
+      //阻止默认事件
+      e.stopPropagation();
+      $("#collapse-head").css("display", "block");
+    });
     </script>
 </body>
 

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>17对标-研发检测 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />  
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/research-detection/research-detection-index.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <header class="am-topbar am-topbar-fixed-top">
+        <div class="am-container">
+            <!-- 左侧的图标 -->
+            <h1 class="am-topbar-brand">
+                <a href="http://www.17duibiao.com" class="am-logo">
+                    <image src="../assets/images/whiteLogo.png" class="am-img-responsive">
+                </a>
+            </h1>
+
+            <!-- 右侧的按钮 -->
+            <button id="pullDown" class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
+                <span class="am-sr-only">导航切换</span> 
+                <span class="am-icon-bars"></span>
+            </button>
+            <!-- 点击按钮以后的下拉内容 -->
+            <div class="am-collapse am-topbar-collapse" id="collapse-head">
+                <div class="am-topbar-right">
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="register/enterprise-info.html"><span class="am-icon-user"></span> 企业信息</a>
+                </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="register/personal-info.html"><span class="am-icon-user"></span> 个人信息</a>
+                </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="register.html"><span class="am-icon-pencil"></span> 密码修改</a>
+                </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="index.html"><span class="am-icon-close"></span>注销登录</a>
+                </div>
+                <div class="am-topbar-right">
+                    <a class="am-btn my-btn-primary am-topbar-btn am-btn-sm" href="index.html"><span class="am-icon-home"></span>首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main am-g">
+        <section class="am-panel">
+            <header class="am-panel-hd">
+                <div class="detail-h2">研发检测介绍</div>
+            </header>
+            <div class="am-panel-bd">
+                <div class="my-nav am-cf">
+                    <ul id="my-nav-ul">
+                        <li onclick="location.href='menu-device/menu-device-index.html'" class="my-nav-li" id="menu-device">
+                            <div class="my-nav-i">
+                                <i class="am-icon-connectdevelop"></i>
+                            </div>
+                            <div class="my-nav-title">一站式平台</div>
+                        </li>
+                        <li onclick="location.href='menu-measure/menu-measure-index.html'" class="my-nav-li" id="menu-measure">
+                            <div class="my-nav-i">
+                                <i class="am-icon-barcode"></i>
+                            </div>
+                            <div class="my-nav-title">光谱分析</div>
+                        </li>
+                        <li onclick="location.href='menu-monitor/menu-monitor-index.html'" class="my-nav-li" id="menu-monitor">
+                            <div class="my-nav-i">
+                                <i class="am-icon-certificate"></i>
+                            </div>
+                            <div class="my-nav-title">照明分析</div>
+                        </li>
+                        <li onclick="location.href='menu-base/menu-base-index.html'" class="my-nav-li" id="menu-base">
+                            <div class="my-nav-i">
+                                <i class="am-icon-desktop"></i>
+                            </div>
+                            <div class="my-nav-title">显示分析</div>
+                        </li>
+                        <li onclick="location.href='menu-feedback/menu-feedback.html'" class="my-nav-li" id="menu-feedback">
+                            <div class="my-nav-i">
+                                <i class="am-icon-line-chart"></i>
+                            </div>
+                            <div class="my-nav-title">EMC分析</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="am-panel">
+            <header class="am-panel-hd">
+                <div class="detail-h2">实验室及资质</div>
+            </header>
+            <div class="am-panel-bd">
+                <div class="my-nav am-cf">
+                    <ul id="my-nav-ul">
+                        <li onclick="location.href='menu-device/menu-device-index.html'" class="my-nav-li" id="menu-device">
+                            <div class="my-nav-i">
+                                <i class="am-icon-building-o"></i>
+                            </div>
+                            <div class="my-nav-title">实验室介绍</div>
+                        </li>
+                        <li onclick="location.href='menu-measure/menu-measure-index.html'" class="my-nav-li" id="menu-measure">
+                            <div class="my-nav-i">
+                                <i class="am-icon-wpforms"></i>
+                            </div>
+                            <div class="my-nav-title">实验室资质</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- 底部的按钮 -->
+    <footer class="footer">
+        <div class="menu am-cf">
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" onclick="location.href='research-detection-release.html';">发布检测需求</button>
+        </div>
+    </footer>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script>
+        $(document).on("click", function (e) {
+            $("#collapse-head").css("display", "none")
+        });
+        $("#pullDown").click(function (e) {
+            //阻止默认事件
+            e.stopPropagation();
+            $("#collapse-head").css("display", "block");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+body{
+    background:#E7E7E7;
+    overflow-x: hidden
+}
+.my-header{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+    z-index: 1000;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.am-header-default{
+    background:#1C82D2;
+}
+/* 顶部的分割符号 */
+.separate {
+    color: #d7d8d9;
+    margin: 0 14px;
+    font-size: 20px;
+}
+/* 条件搜索 */
+.my-select{
+    display: block;
+    width: 100%;
+    padding: .5em;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+/* 列表 */
+.my-font{
+    color:#A7A7A7;
+}
+.my-licence{
+    background:#fff;
+}
+.my-licence-item{
+    border-bottom: 1px solid #E7E7E7;
+}
+.am-icon-eye{
+    color:#5EB95E;
+}
+.am-icon-eye-slash{
+    color:#DD514C;
+}
+
+.main{
+    height: 100%;
+    padding-bottom:5rem;
+}
+/* 防止640以上屏幕导致标题被下拉菜单遮挡住 */
+@media screen and (max-width:640px){
+    .main{
+        padding-top: 5rem;
+    }
+}
+@media screen and (min-width:641px){
+    .main{
+        padding-top: 10rem;
+    }
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #FAFBFF;
+    /* background: #0087db; */
+    text-align: center;
+    border-top: 1px solid #ececec;
+}

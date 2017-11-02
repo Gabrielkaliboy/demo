@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>添加留言</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/menu-feedback/menu-feedback-add.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="menu-feedback.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                        添加留言
+                    </span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="main">
+        <form action="" class="am-form" id="feedback-add" onsubmit="return false;">
+            <fieldset>
+                <!-- <legend>显示验证提示信息</legend> -->
+                <div class="am-form-group">
+                    <label for="feedback-add-title">标题：</label>
+                    <input type="text" id="feedback-add-title" minlength="2" maxlength="16" placeholder="请输入标题" pattern="" data-validation-message="必填项，2-16字符"
+                        required/>
+                </div>
+    
+                <div class="am-form-group">
+                    <label for="feedback-add-message">留言：</label>
+                    <textarea id="feedback-add-message" minlength="10" maxlength="150" data-validation-message="必填项，10-150字符" required></textarea>
+                </div>
+                <button class="am-btn am-btn-secondary am-btn-block" type="submit" id="feedback-btn">确定</button>
+            </fieldset>
+        </form>
+    </div>
+    <!-- 底部的按钮
+    <footer class="footer">
+        <div class="menu am-cf">
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" onclick="location.href='menu-Softauthorization.html';">确定</button>
+        </div>
+    </footer> -->
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <!-- 上线前删除 -->
+    <script src="../assets/deleteBeforeLine/mock-min.js"></script>
+    <!-- 上线前删除 -->  
+    <script>
+        $(function () {
+            //个人注册表单验证
+            $('#feedback-add').validator({
+                onValid: function (validity) {
+                    $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+
+                },
+
+                onInValid: function (validity) {
+                    var $field = $(validity.field);
+                    var $group = $field.closest('.am-form-group');
+                    var $alert = $group.find('.am-alert');
+                    // 使用自定义的提示信息 或 插件内置的提示信息
+                    var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+                    if (!$alert.length) {
+                        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+                            appendTo($group);
+                    }
+
+                    $alert.html(msg).show();
+                },
+                keyboardEvents: 'focusout, change,keyup, focusin', // keyup, focusin
+                submit: function () {
+                    // 这个submit确实可以实现表单提交，但是如果页面有未通过验证的输入，就会导致页面跳动
+                    var formValidity = this.isFormValid();
+
+                    $.when(formValidity).then(function () {
+                        // 验证成功的逻辑
+                        $.ajax({
+                        url: "1.php",
+                        type: "POST",
+                        data: {
+                            "feedback-add-title": $("#feedback-add-title").val(),
+                            "feedback-add-message": $("#feedback-add-message").val(),
+                        },
+                        beforeSend: function () {
+                            console.log(this.data);
+                        },
+                        dataType: "json",
+                        success: function (data, textStatus) {
+                            location.href = "menu-feedback.html";
+                        }
+                    })
+                    }, function () {
+                        // 验证失败的逻辑
+                        console.log("失败")
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

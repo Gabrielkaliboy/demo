@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Absolute Centering-容器内部</title>
+    <style>
+        .Center-Container {
+            position: relative;
+            background: #1a5d09;
+            color: #fff;
+            height: 500px;
+        }
+
+        .Absolute-Center {
+            width: 50%;
+            height: 50%;
+            overflow: auto;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #f00;
+            bottom: 0;
+            right: 0;
+        }
+        .offset{
+            left: auto; 
+            right: 20px;  
+            text-align: right;  
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Center-Container">
+        <span class="Absolute-Center offset">
+            距离右边栏20px,并且内部文字右对齐。其他的靠左靠上靠下模式一样。
+        </span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+body{
+    background: transparent url("../images/ep_naturalblack.png") repeat fixed center center;
+}
+.my-container{
+    position: absolute;
+    margin:auto;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    height: 500px;
+}
+#my-video{
+    display: none;
+}
+#my-iframe{
+    height: 100%;
+    width:100%;
+}
+#my-back{
+    position: absolute;
+    left:5px;
+    top:8px;
+}
+.form-group label{
+    text-align: right;
+    color:#fff;
+}
+.help-block {
+    color: #bbaaca;
+}

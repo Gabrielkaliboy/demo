@@ -19,7 +19,7 @@ body{
 }
 #my-back{
     position: absolute;
-    left:5px;
+    right:5px;
     top:8px;
 }
 .form-group label{

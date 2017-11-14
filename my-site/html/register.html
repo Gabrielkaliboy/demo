@@ -32,15 +32,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="e-mail" class="col-sm-3 control-label">邮箱：</label>
+                <label for="email" class="col-sm-3 control-label">邮箱：</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" name="e-mail" id="e-mail" placeholder="请输入电子邮箱">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="请输入电子邮箱">
                 </div>
             </div>
             <div class="form-group">
                 <label for="QQ" class="col-sm-3 control-label">QQ：</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" name="QQ" id="QQ" placeholder="请输入您的QQ号">
+                    <input type="text" class="form-control" name="QQ" id="QQ" placeholder="请输入您的QQ号">
                 </div>
             </div>
             <div class="form-group">
@@ -88,6 +88,10 @@
                             notEmpty: {
                                 message: '密码不能为空',
                             },
+                            identical:{
+                                field:'repassword',
+                                message:'密码与确认密码不一致'
+                            },
                             stringLength: {
                                 min: 6,
                                 max: 16,
@@ -100,22 +104,37 @@
                         }
                     },
                     repassword: {
-                            validators: {
-                                notEmpty: {
-                                    message: '请输入确认密码',
-                                },
-                            }
-                        },
+                        validators: {
+                            notEmpty: {
+                                message: '请输入确认密码',
+                            },
+                            identical:{
+                                field:'password',
+                                message:'密码与确认密码不一致'
+                            },
+                        }
+                    },
                     email: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The email address is required and can\'t be empty'
-                                },
-                                emailAddress: {
-                                    message: 'The input is not a valid email address'
-                                }
+                        validators: {
+                            notEmpty: {
+                                message: '请输入您的邮箱地址'
+                            },
+                            emailAddress: {
+                                message: '邮箱地址格式不正确'
                             }
-                        },
+                        }
+                    },
+                    QQ:{
+                        validators:{
+                            notEmpty:{
+                                message:'请输入您的QQ号'
+                            },
+                            regexp:{
+                                regexp:/[1-9][0-9]{4,10}/,//第一位1-9之间的数字，第二位0-9之间的数字，数字范围4-14个之间
+                                message:'QQ号码格式不正确'
+                            }
+                        }
+                    }
                 }
             })
             .on('success.form.bv', function (e) {

@@ -7,7 +7,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>注册</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/lib/bootstrapvalidator/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../lib/bootstrapvalidator/bootstrapValidator.min.css">
     <link rel="stylesheet" href="../assets/css/register.css">
 </head>
 <body>
@@ -52,8 +52,8 @@
     </div>
 <script src="../assets/js/jquery-1.11.3.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/lib/bootstrapvalidator/bootstrapValidator.min.js"></script>
-<script src="../assets/lib/bootstrapvalidator/zh_CN.js"></script>
+<script src="../lib/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script src="../lib/bootstrapvalidator/zh_CN.js"></script>
 <script>
     $(document).ready(function () {
         $('#my-form')
@@ -141,9 +141,24 @@
                 // Prevent submit form
                 e.preventDefault();
 
-                var $form = $(e.target),
-                    validator = $form.data('bootstrapValidator');
-                $form.find('.alert').html('Thanks for signing up. Now you can sign in as ' + validator.getFieldElements('username').val()).show();
+//                var $form = $(e.target),
+//                    validator = $form.data('bootstrapValidator');
+//                $form.find('.alert').html('Thanks for signing up. Now you can sign in as ' + validator.getFieldElements('username').val()).show();
+                var myData={};
+                    myData={
+                        username:$("#username").val(),
+                        password:$("#password").val(),
+                        email:$("#email").val(),
+                        qq:$("#QQ").val()
+                    };
+                $.ajax({
+                    url:'../php/reg.php',
+                    type:'POST',
+                    data:myData,
+                    success:function (data) {
+                        console.log(data)
+                    }
+                })
             });
     });
 </script>

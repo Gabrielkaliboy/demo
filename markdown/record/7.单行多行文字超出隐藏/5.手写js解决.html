@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .horizontal {
+            /* background: #f00; */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            /* 与下面容器保持一致是为了实现居中 */
+            width: 200px;
+            height: 70px;
+        }
+
+        #div1 {
+            border:1px solid red;width:200px;height:70px;overflow:auto
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="horizontal">
+        <div id="div1">
+        </div>
+    </div>
+</body>
+<script>
+    var s = '这是一个文本这是一个文本这是一个文本这是一个文本这是一个文本这是一个文本是一个文本这是一个文本这是一个文本这是一个文本这是一个文本这是一个文本';
+    var el = document.getElementById('div1');
+    var n = el.offsetHeight;//获取容器的高度
+    for (i = 0; i < s.length; i++) {
+        el.innerHTML = s.substr(0, i);
+        if (n < el.scrollHeight) {
+            // 容器滚动条所在位置的高度，容器初始状态没有文字的时候，scrollHeight肯定小于offsetHeight
+            //我们这里做个判断，只要容器高度小于滚动条所在位置高度（换句话说就是超出了），我们给容器设置隐藏
+            // 并记忆当前超出是的i的值，最后将文字截取
+            el.style.overflow = 'hidden';
+            el.innerHTML = s.substr(0, i - 3) + '...';
+            break;
+        }
+    }
+</script>
+</html>

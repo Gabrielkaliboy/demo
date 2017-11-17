@@ -1,0 +1,27 @@
+<?php
+header("Content-type:application/json;charset=utf-8");
+$arr1=array(
+    "status"=>1,
+    "data"=>array(
+        array(
+            "name"=>"李明",
+            "age"=>12,
+            "sex"=>"男"
+        ),
+        array(
+            "name"=>"阿三",
+            "age"=>23,
+            "sex"=>"未知"
+        ),
+        array(
+            "name"=>"jarry",
+            "age"=>22,
+            "sex"=>"女"
+        )
+    ),
+);
+//前端返回{"status":1,"data":{"0":{"name":"\u674e\u660e","age":12,"sex":"\u7537"},"1":{"name":"\u963f\u4e09","age":23,"sex":"\u672a\u77e5"},"2":{"name":"jarry","age":22,"sex":"\u5973"}}}
+//中文名字可以直接用，用的时候就是中文了，不是Unicode
+$a1=json_encode($arr1,JSON_FORCE_OBJECT);
+echo "$a1";
+?>

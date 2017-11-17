@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <title>PHP中文</title>
+</head>
+<body>
+<div id="div1">
+    1
+</div>
+</body>
+<script>
+    var div1=document.getElementById("div1");
+    $.ajax({
+        url:"json_encode_11_jsonforceobject.php",
+        type:"POST",
+        success:function (data) {
+            console.log(data);
+            $("#div1").text(data.data[1].name)
+        }
+    })
+</script>
+</html>

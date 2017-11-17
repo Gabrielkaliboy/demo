@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <title>php另外一种数组声明格式</title>
+</head>
+<body>
+<div id="div1">
+    1
+</div>
+</body>
+<script>
+    var div1=document.getElementById("div1");
+    $.ajax({
+        url:"json_encode_3.php",
+        type:"POST",
+        success:function (data) {
+            console.log(data);
+            //由于接口PHP文件加入header头部，传过来的是json对象，可以直接用
+            div1.innerHTML=data[1];
+        }
+    })
+</script>
+</html>

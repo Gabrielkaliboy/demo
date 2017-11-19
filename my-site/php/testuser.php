@@ -24,5 +24,6 @@ if(mysqli_fetch_array($check_query)){
 //用户名不存在返回
     $bucunzai=json_encode(array("valid"=>"true"),JSON_FORCE_OBJECT);
     echo $bucunzai;
+    exit;
 }
 ?>

@@ -5,7 +5,7 @@
  * Date: 2017/11/14
  * Time: 14:44
  */
-if( $_SERVER['HTTP_REFERER'] == "" )
+if(!isset( $_SERVER['HTTP_REFERER']))
 {
     echo"非法访问";
     exit;
@@ -16,8 +16,22 @@ $dbpass='woaini116';//mysql密码
 //连接数据库
 $conn=@mysqli_connect($dbhost,$dbuser,$dbpass);
 if(!$conn){
-    die("连接错误：".mysqli_connect_error());
-    echo"系统内部错误";
+//    die("连接错误：".mysqli_connect_error());
+    die("连接错误");
+    $conn_mess=new Response();
+    $conn_mess->json(0,'系统内部错误',array());
 }
 mysqli_select_db($conn,"qdm179472315_db");
+class Response{
+    public  function json($code,$message="",$data=array()){
+        $result=array(
+          'code'=>$code,
+          'message'=>$message,
+          'data'=>$data
+        );
+        //输出json
+        echo json_encode($result,JSON_FORCE_OBJECT);
+        exit;
+    }
+}
 ?>

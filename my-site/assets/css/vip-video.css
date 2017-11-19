@@ -1,14 +1,20 @@
+
 body{
-    background: transparent url("../images/ep_naturalblack.png") repeat fixed center center;
+    background: #f3f3f3;
 }
 .my-container{
     position: absolute;
-    margin:auto;
-    top:0;
-    left:0;
+    margin: auto;
+    top: 100px;
+    left: 0;
     right: 0;
-    bottom: 0;
-    height: 500px;
+    background: #fff;
+    padding: 50px 20px;
+}
+@media screen and (max-width: 768px){
+    .my-container{
+        padding:10px;
+    }
 }
 #my-video{
     display: none;
@@ -17,15 +23,36 @@ body{
     height: 100%;
     width:100%;
 }
-#my-back{
+.float-window{
     position: absolute;
-    right:5px;
-    top:8px;
+    right: 5px;
+    top: 65px;
+}
+.float-mes{
+    color: #f00;
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    margin: 0 auto;
+    right: 0;
+    display: none;
+}
+@media screen and (min-width: 768px){
+    .float-mes{
+        width: auto;
+        left: 35%;
+    }
+}
+
+@media  screen and (min-width: 1200px){
+    .float-mes{
+        width: auto;
+        left: 40%;
+    }
+}
+#my-back{
+
 }
 .form-group label{
     text-align: right;
-    color:#fff;
-}
-.help-block {
-    color: #bbaaca;
 }

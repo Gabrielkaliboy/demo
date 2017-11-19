@@ -1,0 +1,50 @@
+body{
+    background: #f3f3f3;
+}
+.my-mt50{
+    margin-top:50px;
+}
+.my-menu{
+    background: #3c76ce;
+    padding: 15px 0;
+}
+.my-menu a{
+    color:#fff;
+}
+.my-menu a:link{
+    text-decoration: none;
+}
+/*模块*/
+.my-item{
+    padding: 10px;
+}
+.my-item-wrap{
+    background: #fff;
+    padding: 10px;
+}
+/*标题*/
+.my-item-tit{
+    font-size: 18px;
+    color: #f50;
+}
+/*更多*/
+.my-item-more{
+    color:#999;
+}
+.my-item-first{
+    line-height: 40px;
+    border-bottom: 1px solid #f4f4f4;
+}
+/*条目*/
+.my-item-tip{
+    line-height: 30px;
+}
+.zR-ruan{
+ color:#f50;
+}
+.my-text-truncate{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: normal;//ie
+}

@@ -26,7 +26,7 @@ $(document).ready(function () {
                         },
                         threshold :  6 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
                         remote:{
-                            url:'../php/testuser.php',
+                            url:'../../php/testuser.php',
                             message:'用户已存在',//提示信息
                             //delay: 2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
                             type:'POST'
@@ -109,7 +109,7 @@ $(document).ready(function () {
                 qq:$("#QQ").val()
             };
             $.ajax({
-                url:'../php/reg.php',
+                url:'../../php/reg.php',
                 type:'POST',
                 data:myData,
                 success:function (data) {
@@ -119,7 +119,7 @@ $(document).ready(function () {
                         $("#myModal").modal("show");
                         setTimeout(function () {
                             $("#myModal").modal("hide");
-                            location.href="../index.html";
+                            location.href="../../index.html";
                         },2000)
                     }else{
                         $(".modal-body").text("注册失败，请稍后重试!");

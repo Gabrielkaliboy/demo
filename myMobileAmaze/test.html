@@ -1,110 +1,55 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<head lang="en">
-  <meta charset="UTF-8">
-  <title>17对标-设备物联网平台 </title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-  <link rel="stylesheet" href="assets/css/indexBase.css">
-  <link rel="stylesheet" href="assets/css/amazeui.address.min.css">
-  <style>
-    .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    /* 仅用于本页面 */
-    /* .my-tabs-nav a {
-            background: #0e90d2;
-            color: #fff;
-        }
+<head>
+  <title>DIV CSS遮罩层</title>
+  <script language="javascript" type="text/javascript">
+    function showdiv() {
+      document.getElementById("bg").style.display = "block";
+      document.getElementById("show").style.display = "block";
+    }
+    function hidediv() {
+      document.getElementById("bg").style.display = 'none';
+      document.getElementById("show").style.display = 'none';
+    }
+  </script>
+  <style type="text/css">
+    #bg {
+      display: none;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 1001;
+      -moz-opacity: 0.7;
+      opacity: .70;
+      filter: alpha(opacity=70);
+    }
 
-        .am-nav-tabs>li>a {
-            margin-right: 0px;
-        } */
-
-    .get {
-      background: #1E5B94;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
+    #show {
+      display: none;
+      position: absolute;
+      top: 25%;
+      left: 22%;
+      width: 53%;
+      height: 49%;
+      padding: 8px;
+      border: 8px solid #E8E9F7;
+      background-color: white;
+      z-index: 1002;
+      overflow: auto;
     }
   </style>
 </head>
 
 <body>
-  <!-- 顶部的按钮 -->
-  <header class="am-topbar am-topbar-fixed-top">
-    <div class="am-container">
-      <!-- 左侧的图标 -->
-      <h1 class="am-topbar-brand">
-        <a href="http://www.17duibiao.com" class="am-logo">
-          <image src="assets/images/blueLogo.png" class="am-img-responsive">
-        </a>
-      </h1>
-
-      <!-- 右侧的按钮 -->
-      <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
-                <span class="am-sr-only">导航切换</span> 
-                <span class="am-icon-bars"></span>
-            </button>
-      <!-- 点击按钮以后的下拉内容 -->
-      <div class="am-collapse am-topbar-collapse" id="collapse-head">
-      </div>
-    </div>
-  </header>
-  <div class="get">
-    <div class="am-g">
-      <div class="am-u-lg-12">
-        请根据您的需要，选择注册个人用户还是企业用户
-      </div>
-    </div>
+  <input id="btnshow" type="button" value="Show" onclick="showdiv();" />
+  <div id="bg"></div>
+  <div id="show">测试
+    <input id="btnclose" type="button" value="Close" onclick="hidediv();" />
   </div>
-  
-  <script src="assets/js/jquery-1.11.3.min.js"></script>
-  <script src="assets/js/amazeui.min.js"></script>
-  <script src="assets/js/address.min.js"></script>
-  <script>
-    $(function () {
-      //个人注册表单验证
-      $('#personal-form').validator({
-        onValid: function (validity) {
-          $(validity.field).closest('.am-form-group').find('.am-alert').hide();
-        },
-
-        onInValid: function (validity) {
-          var $field = $(validity.field);
-          var $group = $field.closest('.am-form-group');
-          var $alert = $group.find('.am-alert');
-          // 使用自定义的提示信息 或 插件内置的提示信息
-          var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
-
-          if (!$alert.length) {
-            $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
-              appendTo($group);
-          }
-
-          $alert.html(msg).show();
-        }
-      });
-
-      //个人注册省市县
-      //	带底部的
-      $("#per-group-address").address({
-        scrollToCenter: true,
-        footer: true,
-        selectEnd: function (json) {
-          console.log(JSON.stringify(json));
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>申请售后服务</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/customer-service/customer-service-form.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="customer-service-record.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                            申请售后服务
+                    </span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="main">
+        <form action="" class="am-form" id="customer-service-form" onsubmit="return false;">
+            <fieldset>
+                <!-- <legend>显示验证提示信息</legend> -->
+                <div class="am-form-group">
+                    <label for="customer-product-type">产品类别：</label>
+                    <select id="customer-product-type"  data-am-selected="{maxHeight: 100}">
+                        <option value=""></option>
+                        <option value="1">光谱亮度计</option>
+                        <option value="2">光谱仪</option>
+                        <option value="3">分布式光度计</option>
+                        <option value="4">照度计</option>
+                        <option value="5">WY电源</option>
+                        <option value="6">其他</option>
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="customer-product-model">产品型号：</label>
+                    <select id="customer-product-model"  data-am-selected="{maxHeight: 100}">
+                        <option value=""></option>
+                        <option value="1">src-200s</option>
+                        <option value="2">src-200m</option>
+                        <option value="3">src-600s</option>
+                        <option value="4">src-600m</option>
+                        <option value="5">src-600ms</option>
+                        <option value="6">src-600</option>
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="customer-equipment-number">设备编号：</label>
+                    <input type="text" id="customer-equipment-number" minlength="2" maxlength="16" placeholder="请输入样品名称" pattern="" data-validation-message="必填项，2-16字符"
+                        required/>
+                </div>
+                <div class="am-form-group">
+                    <label for="customer-service-type">为您的产品选择服务类型</label>
+                    <select id="customer-service-type"  data-am-selected="{maxHeight: 100}">
+                        <option value=""></option>
+                        <option value="1">维修</option>
+                        <option value="2">退货</option>
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+                <div class="am-form-group" id="com-industry-group">
+                    <label for="product-problem-type">产品问题类型：</label>
+                    <select id="product-problem-type"  data-am-selected="{maxHeight: 100}">
+                        <option value=""></option>
+                        <option value="1">不能开机</option>
+                        <option value="2">屏裂、划痕外观故障</option>
+                        <option value="3">WiFi链接异常</option>
+                        <option value="4">屏幕异常</option>
+                        <option value="5">黑屏</option>
+                        <option value="6">测量误差较大</option>
+                        <option value="6">其他</option>                        
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="product-problem-detial">产品问题详细描述：</label>
+                    <textarea id="product-problem-detial" required maxlength="200" placeholder="请输入测试项目需求" data-validation-message="200个字符以内" pattern=""></textarea>
+                </div>
+
+                <div class="am-form-group" id="com-industry-group">
+                    <label for="customer-service-way">选择服务方式：</label>
+                    <select id="customer-service-way"  data-am-selected="{maxHeight: 100}">
+                        <option value=""></option>
+                        <option value="1">我们到您的办公现场进行维修</option>
+                        <option value="2">审核通过后，寄送商品，返厂维修</option>                        
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="customer-service-name">姓名：</label>
+                    <input type="text" id="customer-service-name" required minlength="" maxlength="" placeholder="请输入客户名称" pattern="" data-validation-message="必填，全中文或者全英文"
+                        required/>
+                </div>
+
+
+                <div class="am-form-group">
+                    <label for="customer-service-tel">手机号：</label>
+                    <input type="text" id="customer-service-tel" required minlength="8" maxlength="32" placeholder="请输入联系电话" pattern="" data-validation-message="必填，8-32字符"
+                        required/>
+                </div>
+
+                <div class="am-form-group" id="service-address-group">
+                    <label for="customer-service-address">地址：</label>
+                    <input type="text" id="customer-service-address" required minlength="8" maxlength="32" placeholder="请输入联系地址" pattern="" data-validation-message="必填，8-32字符"
+                        required/>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="service-address-detail">详细地址：</label>
+                    <textarea id="service-address-detail" maxlength="150" data-validation-message="最多150字符"></textarea>
+                </div>
+                <button class="am-btn am-btn-secondary am-btn-block" type="submit" id="research-btn1">确定</button>
+            </fieldset>
+        </form>
+    </div>
+    <!-- 底部的按钮 -->
+    <footer class="footer">
+        <div class="menu am-cf">
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" id="research-btn2">确定</button>
+        </div>
+    </footer>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/address.min.js"></script>
+    <!-- 上线前删除 -->
+    <script src="../assets/deleteBeforeLine/mock-min.js"></script>
+    <!-- 上线前删除 -->  
+    <script>
+        $(function () {
+            // 按钮转移
+            $("#research-btn2").click(function(){
+                $("#research-btn1").click();
+            })
+            //申请售后表单
+            $('#customer-service-form').validator({
+                onValid: function (validity) {
+                    $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+
+                },
+
+                onInValid: function (validity) {
+                    var $field = $(validity.field);
+                    var $group = $field.closest('.am-form-group');
+                    var $alert = $group.find('.am-alert');
+                    // 使用自定义的提示信息 或 插件内置的提示信息
+                    var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+                    if (!$alert.length) {
+                        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+                            appendTo($group);
+                    }
+
+                    $alert.html(msg).show();
+                },
+                keyboardEvents: 'focusout, change,keyup, focusin', // keyup, focusin
+                submit: function () {
+                    var formValidity = this.isFormValid();
+                    $.when(formValidity).then(function () {
+                        // 验证成功的逻辑
+                        $.ajax({
+                        url: "1.php",
+                        type: "POST",
+                        data: {
+                            "softAdd-name": $("#softAdd-name").val(),
+                            "softAdd-sequence": $("#softAdd-sequence").val(),
+                            "softAdd-coding": $("#softAdd-coding").val(),
+                            "softAdd-remarks": $("#softAdd-remarks").val()
+                        },
+                        beforeSend: function () {
+                            console.log(this.data);
+                        },
+                        dataType: "json",
+                        success: function (data, textStatus) {
+                            location.href='menu-Softauthorization.html';
+                        }
+                    })
+                    }, function () {
+                        // 验证失败的逻辑
+                        console.log("失败")
+                    });
+                }
+            });
+
+            //公司注册省市县
+            $("#service-address-group").address({
+                scrollToCenter: true,
+                footer: true,
+                selectEnd: function (json) {
+                    console.log(JSON.stringify(json));
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

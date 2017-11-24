@@ -12,9 +12,27 @@
     <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
     <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="../assets/css/research-detection/research-detection-release.css" />
+    <style>
+        /* 设置回到顶部 */
+        .am-gotop-fixed .am-gotop-icon {
+            border-radius: 1.5rem;
+        }
+        .am-gotop-fixed {
+            bottom: 50px;
+        }
+    </style>
 </head>
 
 <body>
+    <div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+        <a href="#top" title="回到顶部">
+            <i class="am-gotop-icon am-icon-arrow-up"></i>
+        </a>
+    </div>
+    <!-- <div class="amz-toolbar" id="amz-toolbar" style="right: 10px;">
+        <a href="#top" title="回到顶部" class="am-icon-btn am-icon-arrow-up am-active" id="amz-go-top"></a>
+        <a href="/getting-started/faq" title="常见问题" class="am-icon-faq am-icon-btn am-icon-question-circle"></a>
+    </div> -->
     <!-- 顶部的按钮 -->
     <div class="my-header">
         <header class="am-header am-header-default">
@@ -65,31 +83,31 @@
 
                 <div class="am-form-group">
                     <label for="research-customer">客户名称：</label>
-                    <input type="text" id="research-customer" required minlength="" maxlength="" placeholder="请输入客户名称" pattern="" data-validation-message="必填，全中文或者全英文"
+                    <input type="text" id="research-customer"  minlength="" maxlength="" placeholder="请输入客户名称" pattern="" data-validation-message="必填，全中文或者全英文"
                         required/>
                 </div>
 
                 <div class="am-form-group">
                     <label for="research-linkman">联系人：</label>
-                    <input type="text" id="research-linkman" required minlength="8" maxlength="32" placeholder="请输入联系人" pattern="" data-validation-message="必填，8-32字符"
+                    <input type="text" id="research-linkman"  minlength="8" maxlength="32" placeholder="请输入联系人" pattern="" data-validation-message="必填，8-32字符"
                         required/>
                 </div>
 
                 <div class="am-form-group">
                     <label for="research-tel">联系电话：</label>
-                    <input type="text" id="research-tel" required minlength="8" maxlength="32" placeholder="请输入联系电话" pattern="" data-validation-message="必填，8-32字符"
+                    <input type="text" id="research-tel"  minlength="8" maxlength="32" placeholder="请输入联系电话" pattern="" data-validation-message="必填，8-32字符"
                         required/>
                 </div>
 
                 <div class="am-form-group">
                     <label for="research-address">联系地址：</label>
-                    <input type="text" id="research-address" required minlength="8" maxlength="32" placeholder="请输入联系地址" pattern="" data-validation-message="必填，8-32字符"
+                    <input type="text" id="research-address"  minlength="8" maxlength="32" placeholder="请输入联系地址" pattern="" data-validation-message="必填，8-32字符"
                         required/>
                 </div>
 
                 <div class="am-form-group">
                     <label for="research-mail">电子邮件：</label>
-                    <input type="text" id="research-mail" required minlength="8" maxlength="32" placeholder="请输入电子邮件" pattern="" data-validation-message="必填，8-32字符"
+                    <input type="text" id="research-mail"  minlength="8" maxlength="32" placeholder="请输入电子邮件" pattern="" data-validation-message="必填，8-32字符"
                         required/>
                 </div>
 

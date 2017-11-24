@@ -1,0 +1,55 @@
+body{
+    background: #fff;
+}
+.my-header{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+    z-index: 1000;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.am-header-default{
+    background:#1C82D2;
+}
+/* 顶部的分割符号 */
+.separate {
+    color: #d7d8d9;
+    margin: 0 14px;
+    font-size: 20px;
+}
+
+.main{
+    height: 100%;
+    padding:5rem 0 0 0;
+}
+.my-group{
+    clear: both;
+    height: 3rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+}
+.my-title{
+    width: 40%;
+    float: left;
+    text-align: center;
+}
+.my-detial{
+    width: 60%;
+    float: right;
+}
+/* 下面的每一条回复控制 */
+.feedback-detail-item{
+    border-top:1px solid #e5e5e5;
+    padding: 1rem 0;
+}
+.detail-item-replay{
+    padding:0 1rem;
+}
+.detail-item-title{
+    color:#1C82D2;
+}
+.detail-item-replayTime{
+    text-align: right;
+}

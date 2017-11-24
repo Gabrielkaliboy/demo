@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>售后服务-服务记录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/amazeui.datetimepicker-se.min.css">
+    <link rel="stylesheet" href="../assets/css/customer-service/admin-service-form.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="../admin-center.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                        售后服务记录
+                    </span>
+                </a>
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-dropdown2">
+            <a href="javascript: void(0)" class="am-menu-toggle" id="my-btn-search">
+                <i class="am-menu-toggle-icon am-icon-search"></i>
+            </a>
+            <div class="am-collapse am-menu-nav"  id="my-nav">
+                <div class="am-g am-padding-horizontal-xs am-margin-bottom-sm">
+                    <select class="am-u-sm-12 my-select">
+                        <option value="">请选择服务状态</option>
+                        <option value="1">未处理</option>
+                        <option value="2">处理中</option>
+                        <option value="3">已处理</option>
+                        <option value="4">不处理</option>                        
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+                <ul class=" am-thumbnails am-avg-sm-2 am-text-center">
+                    <li>
+                        <input type="text" class="am-form-field" placeholder="设备编号" id="softName">
+                    </li>
+                    <li>
+                        <input type="text" class="am-form-field" placeholder="企业名称" id="softName">
+                    </li>
+                </ul>
+                
+                <ul class=" am-text-center">
+                    <li>
+                        <button type="button" class="am-btn am-btn-secondary" id="my-btn-sure">确定</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="my-licence am-cf am-margin-bottom-xs am-padding-horizontal-sm">
+            <div class="am-g am-padding-vertical-xs">
+                <div class="am-u-sm-2 am-padding-0  am-show-sm-only">
+                    状态
+                </div>
+                <div class="am-u-sm-2 am-show-sm-up am-hide-sm-only">
+                    状态
+                </div>
+                <div class="am-u-sm-10 am-padding-0">
+                    <div class="am-g">
+                        <span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center">设备编号</span>
+                        <span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center">产品型号</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-licence am-cf am-padding-horizontal-sm" id="my-licence-insert">
+        </div>
+    </div>
+    <!-- 底部的按钮
+    <footer class="footer">
+        <div class="menu am-cf">
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" onclick="location.href='customer-service-form.html';">添加</button>
+        </div>
+    </footer> -->
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/moment.min.js"></script>
+    <script src="../assets/js/zh-cn.js"></script>
+    <script src="../assets/js/amazeui.datetimepicker-se.min.js"></script>
+    
+    <!-- 上线前删除 -->
+    <script src="../assets/deleteBeforeLine/mock-min.js"></script>
+    <!-- 上线前删除 -->  
+    <script>
+        //点击页面其他地方，顶部下拉消失
+        $(document).on("click", function (e) {
+            $("#my-nav").css("display", "none")
+        });
+        $("#my-btn-search").click(function (e) {
+            //阻止默认事件
+            e.stopPropagation();
+            $("#my-nav").css("display", "block");
+        });
+        //阻止点击nav条件区域关闭下拉
+        $("#my-nav").click(function (e) {
+            e.stopPropagation();
+        })
+        $("#my-btn-sure").click(function () {
+            $("#my-nav").css("display", "none")
+        })
+        var menuList = [
+            {
+                "id": 100101,
+                "status": 0,//未处理
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
+                "applyTime": "2017.10.20",//申请时间
+            },
+            {
+                "id": 100102,
+                "status": 1,//处理中
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
+                "applyTime": "2017.10.20",//申请时间
+            },
+            {
+                "id": 100103,
+                "status": 2,//已处理
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
+                "applyTime": "2017.10.20",//申请时间
+            },
+            {
+                "id": 100104,
+                "status": 3,//不处理
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
+                "applyTime": "2017.10.20",//申请时间
+            },
+        ];
+
+        Mock.mock('http://g.cn', menuList);
+        $.ajax({
+            url: "http://g.cn",
+            dataType: "json",
+            success: function (data, textStatus) {
+                var str = "";
+                data.forEach(function (value, index) {
+                    var icon = "";
+                    switch (value.status) {
+                        case 0:
+                            icon = "am-icon-close";
+                            break;
+                        case 1:
+                            icon = "am-icon-exchange";
+                            break;
+                        case 2:
+                            icon = "am-icon-check";
+                            break;
+                        case 3:
+                            icon = "am-icon-exclamation";
+                            break;
+                    };
+                    str += '<div class="am-g am-padding-vertical-xs my-licence-item" itemId=\"' + value.id + '\"><div class="am-u-sm-2 am-padding-0 am-text-xxl am-show-sm-only"><i class=\"' +
+                        icon + '\"></i></div><div class="am-u-sm-2 am-text-xxl am-show-sm-up am-hide-sm-only"><i class=\"' + icon +
+                        '\"></i></div><div class="am-u-sm-10 am-padding-0"><div class="am-g"><span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center ">' +
+                        value.code + '</span><span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center">' +
+                        value.type + '</span></div><div class="am-g my-font"><span class="am-u-sm-6 am-padding-horizontal-xs am-text-center">' +
+                        value.service + '</span><span class="am-u-sm-6 am-padding-horizontal-xs am-text-center">' +
+                        value.applyTime + '</span></div></div></div>';
+                });
+                $("#my-licence-insert").html(str);
+                $(".my-licence-item").on("click", function () {
+                    var itemId = $(this).attr("itemid");
+                    openSoftDetail(itemId);
+                })
+            }
+        })
+
+        function openSoftDetail(itemid) {
+            location.href = "admin-service-detail.html?itemid=" + itemid;
+        }
+
+
+
+        $(function () {
+            // 日期选择设置，后者不能早于前者
+            var $dp6 = $('#applyTime');
+            $dp6.datetimepicker();
+        });
+
+    </script>
+</body>
+
+</html>

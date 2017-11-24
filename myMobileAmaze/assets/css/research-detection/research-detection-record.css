@@ -1,0 +1,39 @@
+body{
+    background: #fff;
+}
+.my-header{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+    z-index: 1000;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.am-header-default{
+    background:#1C82D2;
+}
+/* 顶部的分割符号 */
+.separate {
+    color: #d7d8d9;
+    margin: 0 14px;
+    font-size: 20px;
+}
+
+.main{
+    height: 100%;
+    padding:5rem 0 5rem 0;
+}
+/* select 100%  */
+.am-dropdown {
+    width: 100%;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #FAFBFF;
+    /* background: #0087db; */
+    text-align: center;
+    border-top: 1px solid #ececec;
+}

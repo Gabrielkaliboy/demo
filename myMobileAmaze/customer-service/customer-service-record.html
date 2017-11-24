@@ -3,7 +3,7 @@
 
 <head lang="en">
     <meta charset="UTF-8">
-    <title>17对标-设备物联网平台 </title>
+    <title>售后服务-服务记录</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
@@ -12,7 +12,7 @@
     <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
     <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="../assets/css/amazeui.datetimepicker-se.min.css">
-    <link rel="stylesheet" href="../assets/css/menu-Softauthorization/menu-Softauthorization.css" />
+    <link rel="stylesheet" href="../assets/css/customer-service/customer-service-record.css" />
 </head>
 
 <body>
@@ -24,7 +24,7 @@
                     <i class="am-header-icon am-icon-arrow-left"></i>
                     <span class="separate">|</span>
                     <span class="am-header-nav-title">
-                        申请授权
+                        售后服务记录
                     </span>
                 </a>
             </div>
@@ -33,13 +33,14 @@
             <a href="javascript: void(0)" class="am-menu-toggle" id="my-btn-search">
                 <i class="am-menu-toggle-icon am-icon-search"></i>
             </a>
-            <div class="am-collapse am-menu-nav" id="my-nav">
+            <div class="am-collapse am-menu-nav"  id="my-nav">
                 <div class="am-g am-padding-horizontal-xs am-margin-bottom-sm">
                     <select class="am-u-sm-12 my-select">
-                        <option value="">请选择授权状态</option>
-                        <option value="option1">已授权</option>
-                        <option value="option2">申请中</option>
-                        <option value="option3">未通过</option>
+                        <option value="">请选择服务状态</option>
+                        <option value="1">未处理</option>
+                        <option value="2">处理中</option>
+                        <option value="3">已处理</option>
+                        <option value="4">不处理</option>                        
                     </select>
                     <span class="am-form-caret"></span>
                 </div>
@@ -51,17 +52,9 @@
                         </div>
                     </li>
                 </ul>
-                <ul class=" am-thumbnails am-text-center">
-                    <li>  
-                        <div class=" am-form-icon">
-                            <i class="am-icon-calendar"></i>
-                            <input type="text" class="am-form-field" placeholder="授权时间" id="authorTime">
-                        </div>
-                    </li>
-                </ul>
                 <ul class=" am-thumbnails am-avg-sm-2 am-text-center">
                     <li>  
-                        <input type="text" class="am-form-field" placeholder="软件名称" id="softName">
+                        <input type="text" class="am-form-field" placeholder="设备编号" id="softName">
                     </li>
                     <li>
                         <button type="button" class="am-btn am-btn-secondary" id="my-btn-sure">确定</button>
@@ -100,8 +93,8 @@
                 </div>
                 <div class="am-u-sm-10 am-padding-0">
                     <div class="am-g">
-                        <span class="am-u-sm-4 am-padding-horizontal-xs am-text-truncate am-text-center">软件名称</span>
-                        <span class="am-u-sm-8 am-padding-horizontal-xs am-text-truncate am-text-center">仪器编码</span>
+                        <span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center">设备编号</span>
+                        <span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center">产品型号</span>
                     </div>
                 </div>
             </div>
@@ -168,7 +161,7 @@
     <!-- 底部的按钮 -->
     <footer class="footer">
         <div class="menu am-cf">
-            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" onclick="location.href='menu-Softauthorization-add.html';">添加</button>
+            <button type="button" class="am-btn  am-btn-lg am-btn-secondary  am-btn-block" onclick="location.href='customer-service-form.html';">添加</button>
         </div>
     </footer>
     <script src="../assets/js/jquery-1.11.3.min.js"></script>
@@ -200,27 +193,35 @@
         var menuList = [
             {
                 "id": 100101,
-                "status": 2,//已授权
-                "name": "HaasSuitdddddde",//软件名称
-                "coding": "YG112048T120dd30017",
+                "status": 0,//未处理
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
                 "applyTime": "2017.10.20",//申请时间
-                "authorTime": "2017.10.20-2017.12.20",//授权时间
             },
             {
                 "id": 100102,
-                "status": 1,//审核中
-                "name": "HaasSuitdddddde",//软件名称
-                "coding": "YG112048T120dd30017",
+                "status": 1,//处理中
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
                 "applyTime": "2017.10.20",//申请时间
-                "authorTime": "审核中",//授权时间
             },
             {
                 "id": 100103,
-                "status": 0,//未通过
-                "name": "HaasSuitdddddde",//软件名称
-                "coding": "YG112048T120dd30017",
+                "status": 2,//已处理
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
                 "applyTime": "2017.10.20",//申请时间
-                "authorTime": "未通过",//授权时间
+            },
+            {
+                "id": 100104,
+                "status": 3,//不处理
+                "code": "HaasSuitdddddde",//设备编号
+                "type": "SRC-200S",//产品型号
+                "service": "维修",//服务类型
+                "applyTime": "2017.10.20",//申请时间
             },
         ];
 
@@ -242,14 +243,17 @@
                         case 2:
                             icon = "am-icon-check";
                             break;
+                        case 3:
+                            icon = "am-icon-exclamation";
+                            break;
                     };
                     str += '<div class="am-g am-padding-vertical-xs my-licence-item" itemId=\"' + value.id + '\"><div class="am-u-sm-2 am-padding-0 am-text-xxl am-show-sm-only"><i class=\"' +
                         icon + '\"></i></div><div class="am-u-sm-2 am-text-xxl am-show-sm-up am-hide-sm-only"><i class=\"' + icon +
-                        '\"></i></div><div class="am-u-sm-10 am-padding-0"><div class="am-g"><span class="am-u-sm-4 am-padding-horizontal-xs am-text-truncate am-text-center ">' +
-                        value.name + '</span><span class="am-u-sm-8 am-padding-horizontal-xs am-text-truncate am-text-center">' +
-                        value.coding + '</span></div><div class="am-g my-font"><span class="am-u-sm-4 am-padding-horizontal-xs am-text-center">' +
-                        value.applyTime + '</span><span class="am-u-sm-8 am-padding-horizontal-xs am-text-center">' +
-                        value.authorTime + '</span></div></div></div>';
+                        '\"></i></div><div class="am-u-sm-10 am-padding-0"><div class="am-g"><span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center ">' +
+                        value.code + '</span><span class="am-u-sm-6 am-padding-horizontal-xs am-text-truncate am-text-center">' +
+                        value.type + '</span></div><div class="am-g my-font"><span class="am-u-sm-6 am-padding-horizontal-xs am-text-center">' +
+                        value.service + '</span><span class="am-u-sm-6 am-padding-horizontal-xs am-text-center">' +
+                        value.applyTime + '</span></div></div></div>';
                 });
                 $("#my-licence-insert").html(str);
                 $(".my-licence-item").on("click", function () {
@@ -260,7 +264,7 @@
         })
 
         function openSoftDetail(itemid) {
-            location.href = "menu-Softauthorization-detail.html?itemid=" + itemid;
+            location.href = "customer-service-detial.html?itemid=" + itemid;
         }
 
 
@@ -268,17 +272,7 @@
         $(function () {
             // 日期选择设置，后者不能早于前者
             var $dp6 = $('#applyTime');
-            var $dp7 = $('#authorTime');
             $dp6.datetimepicker();
-            $dp7.datetimepicker({
-                useCurrent: false //Important! See issue #1075
-            });
-            $dp6.on('dp.change', function (e) {
-                $dp7.data('DateTimePicker').minDate(e.date);
-            });
-            $dp7.on('dp.change', function (e) {
-                $dp6.data('DateTimePicker').maxDate(e.date);
-            });
         });
 
     </script>

@@ -3,7 +3,7 @@
 
 <head lang="en">
     <meta charset="UTF-8">
-    <title>17对标-设备物联网平台 </title>
+    <title>17对标-售后 </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="format-detection" content="telephone=no">
@@ -11,7 +11,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />  
     <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/customer-center.css" />
+    <link rel="stylesheet" href="assets/css/customer-service/customer-service-index.css" />
 </head>
 
 <body>
@@ -53,34 +53,21 @@
     <div class="main am-g">
         <div class="my-quick am-cf am-margin-bottom">
             <ul>
-                <li class="my-quick-li" onclick="location.href='menu-device/menu-device-key.html';">
-                    <div class="my-quick-i"><i class="am-icon-expeditedssl"></i></div>
-                    <div class="my-quick-title">授权秘钥</div>
+                <li class="my-quick-li" onclick="location.href='customer-service/customer-service-record.html';">
+                    <div class="my-quick-i"><i class="am-icon-file-excel-o"></i></div>
+                    <div class="my-quick-title">服务记录</div>
                 </li>
-                <li class="my-quick-li" onclick="location.href='menu-feedback/menu-feedback.html';">
-                    <div class="my-quick-i"><i class="am-icon-comment-o"></i><span class="my-quick-num">1</span></div>
-                    <div class="my-quick-title">未读留言</div>
+                <li class="my-quick-li" onclick="location.href='customer-service/customer-service-form.html';">
+                    <div class="my-quick-i"><i class="am-icon-pencil-square-o"></i></div>
+                    <div class="my-quick-title">申请服务</div>
                 </li>
-                <li class="my-quick-li">
-                    <div class="my-quick-i"><i class="am-icon-bell-o"></i><span class="my-quick-num">1</span></div>
-                    <div class="my-quick-title">校准提醒</div>
-                </li>
-                <li class="my-quick-li" onclick="location.href='menu-Softauthorization/menu-Softauthorization.html';">
-                    <div class="my-quick-i"><i class="am-icon-key"></i></div>
-                    <div class="my-quick-title">申请授权</div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="my-nav am-cf am-margin-bottom">
-            <ul id="my-nav-ul">
             </ul>
         </div>
     </div>
     <!-- 底部的按钮 -->
     <footer class="footer">
         <div class="menu am-cf">
-            <div class="items items-active" target="index">
+            <div class="items" target="index" onclick="location.href='customer-center.html';">
                 <div><i class="am-icon-home"></i></div>
                 <div class="items-title">首页</div>
             </div>
@@ -88,7 +75,7 @@
                 <div><i class="am-icon-cog"></i></div>
                 <div class="items-title">检测</div>
             </div>
-            <div class="items" target="customerService" onclick="location.href='customer-service/customer-service-record.html';">
+            <div class="items items-active" target="customerService" onclick="location.href='customer-service-index.html';">
                 <div><i class="am-icon-shopping-cart"></i></div>
                 <div class="items-title">售后</div>
             </div>
@@ -107,67 +94,13 @@
     </footer>
     <script src="assets/js/jquery-1.11.3.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
-    <!-- 上线前删除 -->
-    <script src="assets/deleteBeforeLine/mock-min.js"></script>
-    <!-- 上线前删除 -->  
     <script>
-        $(".items").on("click", function () {
-            $(".items").removeClass("items-active");
-            $(this).addClass("items-active");
-        })
-
-        var menuList = [
-            {
-                "id": "menu-device",
-                "title": "设备管理",
-                "icon": "am-icon-th",
-                "src":"menu-device/menu-device-index.html"
-            },
-            {
-                "id": "menu-measure",
-                "title": "设备应用",
-                "icon": "am-icon-plug",
-                "src":"menu-measure/menu-measure-index.html"
-            }, {
-                "id": "menu-monitor",
-                "title": "设备监控",
-                "icon": "am-icon-dot-circle-o",
-                "src":"menu-monitor/menu-monitor-index.html"
-            },
-            {
-                "id": "menu-base",
-                "title": "基础设置",
-                "icon": "am-icon-hand-pointer-o",
-                "src":"menu-base/menu-base-index.html"
-            },
-            {
-                "id": "menu-feedback",
-                "title": "意见反馈",
-                "icon": "am-icon-envelope-o",
-                "src":"menu-feedback/menu-feedback.html"
-            },
-            {
-                "id": "menu-Authorization ",
-                "title": "申请授权",
-                "icon": "am-icon-key",
-                "src":"menu-Softauthorization/menu-Softauthorization.html"
-            }
-        ];
-
-        Mock.mock('http://g.cn', menuList);
-        $.ajax({
-            url: "http://g.cn",
-            dataType:"json",
-            success: function (data, textStatus) {
-                var str="";
-                data.forEach(function(value,index){
-                    str+='<li onclick="location.href=\''+value.src+'\'"'+' class="my-nav-li" id="'+value.id+'"><div class="my-nav-i"><i class="'+value.icon+'"></i></div><div class="my-nav-title">'+value.title+'</div>'
-                });
-                $("#my-nav-ul").html(str);
-            }
-        })
+    $(".items").on("click", function () {
+        $(".items").removeClass("items-active");
+        $(this).addClass("items-active");
+    })
         
-        $(document).on("click", function (e) {
+    $(document).on("click", function (e) {
       $("#collapse-head").css("display", "none")
     });
     $("#pullDown").click(function (e) {

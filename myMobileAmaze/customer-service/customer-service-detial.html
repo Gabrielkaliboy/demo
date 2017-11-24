@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>详情-售后</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../assets/css/customer-service/customer-service-detial.css" />
+</head>
+
+<body>
+    <!-- 顶部的按钮 -->
+    <div class="my-header">
+        <header class="am-header am-header-default">
+            <div class="am-header-left am-header-nav">
+                <a href="customer-service-record.html" class="">
+                    <i class="am-header-icon am-icon-arrow-left"></i>
+                    <span class="separate">|</span>
+                    <span class="am-header-nav-title">
+                         售后服务记录详情
+                    </span>
+                </a>
+            </div>
+        </header>
+    </div>
+    <div class="main">
+        <form action="" class="am-form am-form-horizontal" id="customer-service-detail" onsubmit="return false;">
+            <fieldset>
+                <!-- <legend>商品信息</legend> -->
+                <div class="my-group">
+                    <label for="customer-service-time" class="my-title">单据时间：</label>
+                    <div class="my-detial">
+                        <input type="text" disabled id="customer-service-time" value="2017/6/13 11:08:01"/>
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="customer-service-status" class="my-title">处理状态：</label>
+                    <div class="my-detial">
+                        <select class="am-u-sm-12 my-select" disabled id="customer-service-status">
+                            <option value="">请选择服务状态</option>
+                            <option value="1">未处理</option>
+                            <option value="2" selected = "selected">处理中</option>
+                            <option value="3">已处理</option>
+                            <option value="4">不处理</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="my-group">
+                    <label for="customer-product-type" class="my-title">产品类别：</label>
+                    <div class="my-detial">
+                        <select class="am-u-sm-12 my-select" disabled id="customer-product-type">
+                            <option value=""></option>
+                            <option value="1" selected = "selected">光谱亮度计</option>
+                            <option value="2">光谱仪</option>
+                            <option value="3">分布式光度计</option>
+                            <option value="4">照度计</option>
+                            <option value="5">WY电源</option>
+                            <option value="6">其他</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="customer-product-num" class="my-title">产品型号：</label>
+                    <div class="my-detial">
+                        <select class="am-u-sm-12 my-select" disabled id="customer-product-num">
+                            <option value=""></option>
+                            <option value="1" selected = "selected">src-200s</option>
+                            <option value="2">src-200m</option>
+                            <option value="3">src-600s</option>
+                            <option value="4">src-600m</option>
+                            <option value="5">src-600ms</option>
+                            <option value="6">src-600</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="customer-service-code" class="my-title">设备编号：</label>
+                    <div class="my-detial">
+                        <input type="text" disabled id="customer-service-code" value="128445" />
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="customer-product-invoice" class="my-title">有无发票：</label>
+                    <div class="my-detial">
+                        <select class="am-u-sm-12 my-select" disabled id="customer-product-invoice"> 
+                            <option value="">请选择服务状态</option>
+                            <option value="1">有</option>
+                            <option value="2" selected="selected">无</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="customer-service-type" class="my-title">产品服务类型：</label>
+                    <div class="my-detial">
+                        <select class="am-u-sm-12 my-select" disabled id="customer-service-type">
+                            <option value=""></option>
+                            <option value="1" selected="selected">维修</option>
+                            <option value="2">退货</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="product-problem" class="my-title">产品问题类型：</label>
+                    <div class="my-detial">
+                        <select class="am-u-sm-12 my-select" id="product-problem" disabled>
+                            <option value=""></option>
+                            <option value="1">不能开机</option>
+                            <option value="2" selected="selected">屏裂、划痕外观故障</option>
+                            <option value="3">WiFi链接异常</option>
+                            <option value="4">屏幕异常</option>
+                            <option value="5">黑屏</option>
+                            <option value="6">测量误差较大</option>
+                            <option value="6">其他</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="my-group" style="margin-bottom:3rem;">
+                    <label for="product-problem-describe" class="my-title">产品问题描述：</label>
+                    <div class="my-detial">
+                        <textarea id="product-problem-describe" readonly>你这东西质量有问题。你这东西质量有问题。你这东西质量有问题。你这东西质量有问题。你这东西质量有问题。</textarea>
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="customer-service-method" class="my-title">服务方式：</label>
+                    <div class="my-detial">
+                        <select class="am-u-sm-12 my-select" id="customer-service-method" disabled>
+                            <option value=""></option>
+                            <option value="1">现场</option>
+                            <option value="2" selected="selected">寄修</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="my-group">
+                    <label for="customer-service-name" class="my-title">姓名：</label>
+                    <div class="my-detial">
+                        <input type="text" disabled id="customer-service-name" value="阿三" />
+                    </div>
+                </div>
+                <div class="my-group">
+                    <label for="customer-service-tel" class="my-title">手机号：</label>
+                    <div class="my-detial">
+                        <input type="text" disabled id="customer-service-tel" value="13333333333" />
+                    </div>
+                </div>
+
+                <div class="my-group">
+                    <label for="customer-service-address" class="my-title">地址：</label>
+                    <div class="my-detial">
+                        <textarea id="customer-service-address" readonly></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <form action="" class="am-form am-form-horizontal" id="customer-service-supply-form" onsubmit="return false;">
+            <fieldset>
+                <legend>意见补充</legend>
+                <!-- <div class="my-group" style="margin-bottom:3rem;">
+                    <label for="feedback-detail-supply" class="my-title">意见补充：</label>
+                    <div class="my-detial">
+                        <textarea id="feedback-detail-supply"></textarea>
+                    </div>
+                </div> -->
+                <div class="am-form-group">
+                    <textarea id="customer-service-supply" maxlength="150" data-validation-message="最多150字符"></textarea>
+                </div>
+                <button class="am-btn am-btn-secondary am-btn-block am-disabled" type="submit" id="customer-service-btn">回复</button>
+            </fieldset>
+        </form>
+        <div class="am-padding-horizontal-sm">
+            <div class="feedback-detail-item">
+                <div class="am-g">
+                    <div class="am-u-sm-6 detail-item-title">admin</div>
+                    <div class="am-u-sm-6 detail-item-replayTime">2012.10.12</div>
+                </div>
+                <div class="detail-item-replay">
+                    你好，你的设备出了一些问题
+                </div>
+            </div>
+
+            <div class="feedback-detail-item">
+                <div class="am-g">
+                    <div class="am-u-sm-6 detail-item-title">bigboss</div>
+                    <div class="am-u-sm-6 detail-item-replayTime">2012.10.12</div>
+                </div>
+                <div class="detail-item-replay">
+                    我的设备好像有问题
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script>
+        $(function () {
+            // 回复按钮的启用禁用
+            $("#customer-service-supply").focusin(function () {
+                $("#customer-service-btn").removeClass("am-disabled");
+            });
+            $("#customer-service-supply").focusout(function () {
+                if ($(this).val() !== "") {
+                    $("#customer-service-btn").removeClass("am-disabled");
+                } else (
+                    $("#customer-service-btn").addClass("am-disabled")
+                )
+            })
+        });
+
+    </script>
+</body>
+
+</html>

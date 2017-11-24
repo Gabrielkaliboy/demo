@@ -35,21 +35,21 @@ $(document).ready(function () {
                 password:$("#password").val()
             };
             $.ajax({
-                url:'../php/login.php',
+                url:'../../php/login.php',
                 type:'POST',
                 dataType:"json",
                 data:myData,
                 success:function (data) {
-                    var data=JSON.parse(data);
+                    // var data=JSON.parse(data);
                     if(data.code==1){
-                        $(".modal-body").text("注册成功，正在跳转。。。");
+                        $(".modal-body").text("登陆成功，正在跳转。。。");
                         $("#myModal").modal("show");
                         setTimeout(function () {
                             $("#myModal").modal("hide");
-                            location.href="../index.html";
+                            location.href="../../index.html";
                         },2000)
                     }else{
-                        $(".modal-body").text("注册失败，请稍后重试!");
+                        $(".modal-body").text("用户名或密码错误，请重新输入");
                         $("#myModal").modal("show");
                         setTimeout(function () {
                             $("#myModal").modal("hide");

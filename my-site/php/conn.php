@@ -34,4 +34,11 @@ class Response{
         exit;
     }
 }
+function myuser($username,$password,$status){
+    return array(
+        'username'=>$username,
+        'password'=>$password,
+        'status'=>$status
+    );
+}
 ?>

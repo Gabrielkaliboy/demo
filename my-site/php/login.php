@@ -21,3 +21,4 @@ if($row=mysqli_fetch_array($query)){
     $mes->json("0","用户名或密码错误",array());
 }
 mysqli_close($conn);
+?>

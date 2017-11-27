@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <title>仪表盘</title>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="lib/highcharts/highcharts.js"></script>
+<script src="lib/highcharts/sand-signika.js"></script>
+<script src="lib/highcharts/highcharts-more.js"></script>
+<script src="lib/highcharts/exporting.js"></script>
+<script src="lib/highcharts/highcharts-zh_CN.js"></script>
+<script>
+    $(function () {
+
+            Highcharts.chart('container', {
+
+                chart: {
+                    type: 'gauge'
+                },
+
+                pane: {
+                    startAngle: -150,
+                    endAngle: 150
+                },
+
+
+                yAxis: {
+                    min: 0,
+                    max: 100
+                },
+
+                plotOptions: {
+                    gauge: {
+                        dial: {
+                            backgroundColor: 'blue',
+                            borderColor: 'black',
+                            borderWidth: 1,
+                            baseWidth: 10,
+                            topWidth: 1,
+                            baseLength: '90%', // of radius
+                            rearLength: '50%'
+                        }
+                    }
+                },
+
+
+                series: [{
+                    data: [80, 20]
+                }]
+
+            });
+        });
+</script>
+
+</html>

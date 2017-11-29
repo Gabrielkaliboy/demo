@@ -164,81 +164,144 @@ var x=Highcharts.chart("container",{
         },
         zIndex:-8,//用来设置谁在上面，谁在下面
         showInLegend: true, // 是否显示图例
-        legendIndex:1
+        legendIndex:1//在图例中的位置
 
-    }, {//数据列
-        name: '最大值',//图例中的名称
+    }, { //数据列
+        name: '最大值', //图例中的名称
         data: [{
-            color: "#f90",//鼠标划上以后显示的提示的外边框颜色
-            y: 4//数据
+            color: "#f00", //鼠标划上以后显示的提示的外边框颜色
+            colorIndex: 2,
+            dataLabels: {
+                align: "right",
+                verticalAlign: 'top',
+                backgroundColor: "#f6f6f6",
+                borderColor: "#f00",
+                borderWidth: 1,
+                borderRadius: 1,
+                color: "#000",
+                enabled: true,
+                shape: "callout",
+                inside: false,
+                style: {
+                    fontWeight: 'bold'
+                },
+                x: 125,
+                y: 150,
+                overflow: true,
+                crop: false,
+                format: '{y} mW'
+            },
+            y: 8 //数据
         }],
         tooltip: {
             valueSuffix: 'mW'
         },
-        color: "#ff0",
+        color: "#f00", //图例中的颜色
         dial: {
-            backgroundColor: "#f00",//指针颜色
-            baseLength: "1%",
-            baseWidth: 10,//指针粗度
-            borderColor: "#009",//指针边框颜色
-            borderWidth: "2",//指针边框粗度
-            radius: "80%",//指针正方向长度
-            rearLength: "20%",//指针反方向长度
-            topWidth: 1//指针顶部箭头宽度
+            backgroundColor: "#f00", //指针颜色
+            baseLength: "90%", //从那个位置开始出现箭头
+            baseWidth: 10, //指针粗度
+            borderColor: "#000", //指针边框颜色
+            borderWidth: "1", //指针边框粗度
+            radius: "80%", //指针正方向长度
+            rearLength: "50%", //指针反方向长度
+            topWidth: 1 //指针顶部箭头宽度
         },
-        zIndex: -8,//用来设置谁在上面，谁在下面
+        zIndex: -7, //用来设置谁在上面，谁在下面
         showInLegend: true, // 是否显示图例
         legendIndex: 2
 
-        }, {//数据列
-            name: '最小值',//图例中的名称
-            data: [{
-                color: "#f90",//鼠标划上以后显示的提示的外边框颜色
-                y: 24//数据
-            }],
-            tooltip: {
-                valueSuffix: 'mW'
+    }, { //数据列
+        name: '最小值', //图例中的名称
+        data: [{
+            color: "#f00", //鼠标划上以后显示的提示的外边框颜色
+            colorIndex: 3,
+            dataLabels: {
+                align: "right",
+                verticalAlign: 'top',
+                backgroundColor: "#f6f6f6",
+                borderColor: "#24FF00",
+                borderWidth: 1,
+                borderRadius: 1,
+                color: "#000",
+                enabled: true,
+                shape: "callout",
+                inside: false,
+                style: {
+                    fontWeight: 'bold'
+                },
+                x: -10,
+                y: 150,
+                overflow: true,
+                crop: false,
+                format: '{y} mW'
             },
-            color: "#ff0",
-            dial: {
-                backgroundColor: "#f00",//指针颜色
-                baseLength: "1%",
-                baseWidth: 10,//指针粗度
-                borderColor: "#009",//指针边框颜色
-                borderWidth: "2",//指针边框粗度
-                radius: "80%",//指针正方向长度
-                rearLength: "20%",//指针反方向长度
-                topWidth: 1//指针顶部箭头宽度
-            },
-            zIndex: -8,//用来设置谁在上面，谁在下面
-            showInLegend: true, // 是否显示图例
-            legendIndex: 2
+            y: 15 //数据
+        }],
+        tooltip: {
+            valueSuffix: 'mW'
+        },
+        color: "#24FF00", //图例中的颜色
+        dial: {
+            backgroundColor: "#24FF00", //指针颜色
+            baseLength: "90%", //从那个位置开始出现箭头
+            baseWidth: 10, //指针粗度
+            borderColor: "#000", //指针边框颜色
+            borderWidth: "1", //指针边框粗度
+            radius: "80%", //指针正方向长度
+            rearLength: "50%", //指针反方向长度
+            topWidth: 1 //指针顶部箭头宽度
+        },
+        zIndex: -6, //用来设置谁在上面，谁在下面
+        showInLegend: true, // 是否显示图例
+        legendIndex: 3
 
-        }, {//数据列
-            name: '平均值',//图例中的名称
-            data: [{
-                color: "#f90",//鼠标划上以后显示的提示的外边框颜色
-                y: 14//数据
-            }],
-            tooltip: {
-                valueSuffix: 'mW'
+    }, { //数据列
+        name: '平均值', //图例中的名称
+        data: [{
+            color: "#f00", //鼠标划上以后显示的提示的外边框颜色
+            colorIndex: 4,
+            dataLabels: {
+                align: "right",
+                verticalAlign: 'top',
+                backgroundColor: "#f6f6f6",
+                borderColor: "#ff0",
+                borderWidth: 1,
+                borderRadius: 1,
+                color: "#000",
+                enabled: true,
+                shape: "callout",
+                inside: false,
+                style: {
+                    fontWeight: 'bold'
+                },
+                x: -100,
+                y: 90,
+                overflow: true,
+                crop: false,
+                format: '{y} mW'
             },
-            color: "#ff0",
-            dial: {
-                backgroundColor: "#f00",//指针颜色
-                baseLength: "1%",
-                baseWidth: 10,//指针粗度
-                borderColor: "#009",//指针边框颜色
-                borderWidth: "2",//指针边框粗度
-                radius: "80%",//指针正方向长度
-                rearLength: "20%",//指针反方向长度
-                topWidth: 1//指针顶部箭头宽度
-            },
-            zIndex: -8,//用来设置谁在上面，谁在下面
-            showInLegend: true, // 是否显示图例
-            legendIndex: 2
+            y: 25 //数据
+        }],
+        tooltip: {
+            valueSuffix: 'mW'
+        },
+        color: "#ff0", //图例中的颜色
+        dial: {
+            backgroundColor: "#ff0", //指针颜色
+            baseLength: "90%", //从那个位置开始出现箭头
+            baseWidth: 10, //指针粗度
+            borderColor: "#000", //指针边框颜色
+            borderWidth: "1", //指针边框粗度
+            radius: "80%", //指针正方向长度
+            rearLength: "50%", //指针反方向长度
+            topWidth: 1 //指针顶部箭头宽度
+        },
+        zIndex: -5, //用来设置谁在上面，谁在下面
+        showInLegend: true, // 是否显示图例
+        legendIndex: 4
 
-        }]
+    }]
 },
 // function (chart) {
 //         if (!chart.renderer.forExport) {

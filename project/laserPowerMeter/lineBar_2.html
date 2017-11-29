@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <title>仪表盘</title>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="lib/highcharts/highcharts.js"></script>
+<!-- <script src="lib/highcharts/sand-signika.js"></script> -->
+<script src="lib/highcharts/highcharts-more.js"></script>
+<script src="lib/highcharts/exporting.js"></script>
+<script src="lib/highcharts/highcharts-zh_CN.js"></script>
+<script>
+    $(function () {
+        var chart = Highcharts.chart('container', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: '',
+                x: -20 //center
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            credits: {
+                text: '',
+                href: ''
+            },
+            xAxis: {
+                categories: [201601, 201602, 201603, 201604, 201605, 201606, 201607, 201608, 201609, 201610, 201611, 201612,]
+            },
+            yAxis: [{ // Primary yAxis
+                labels: {
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: '',
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                labels: {
+                    style: {
+                        color: Highcharts.getOptions().colors[1]
+                    }
+                },
+                opposite: true//显示在右方
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '计划累计', yAxis: 1, color: 'red',
+                dashStyle: 'dash',
+                index: 4,
+                data: [27900, 51535, 78172, 103882, 129422, 155822, 184032, 211424, 237674, 263924, 285824, 310112,]
+            },
+            {
+                name: '实际累计',
+                yAxis: 1,
+                color: '#FF00DD',
+                index: 5, data: [23715, 46988, 82754, 128237, 168160, 193561, 219364, 243298, 265775, 284043, 294481, 304355,]
+            },
+            {
+                name: '计划水平',
+                yAxis: 0,
+                color: 'Aqua',
+                dashStyle: 'dash',
+                type: 'column',
+                index: 2,
+                data: [27900, 23635, 26637, 25710, 25540, 26400, 28210, 27392, 26250, 26250, 21900, 24288,]
+            }, { name: '实际水平', yAxis: 0, color: 'Green', index: 3, type: 'column', data: [23715, 23273, 35766, 45483, 39923, 25401, 25803, 23934, 22477, 18268, 10438, 9874,] }
+            ]
+        });
+        $('#m1').click(function () {
+            chart.series[0].update({
+                type: 'column',
+                zIndex: 1
+            });
+            chart.series[1].update({
+                type: 'column',
+                zIndex: 1
+            });
+            chart.series[2].update({
+                zIndex: 9
+            });
+            chart.series[3].update({
+                zIndex: 9
+            });
+        });
+        $('#m2').click(function () {
+            chart.series[0].update({
+                type: 'line'
+            });
+            chart.series[1].update({
+                type: 'line'
+            });
+        });
+    });
+
+
+</script>
+
+</html>

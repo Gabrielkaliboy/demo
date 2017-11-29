@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <title>仪表盘</title>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="lib/highcharts/highcharts.js"></script>
+<!-- <script src="lib/highcharts/sand-signika.js"></script> -->
+<script src="lib/highcharts/highcharts-more.js"></script>
+<script src="lib/highcharts/exporting.js"></script>
+<script src="lib/highcharts/accessibility.js"></script>
+<script src="lib/highcharts/highcharts-zh_CN.js"></script>
+<script>
+    var chart = Highcharts.chart('container', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: '实时波形'
+            },
+            subtitle: {
+                text: '机器实时测量'
+            },
+            xAxis: [{
+                crosshair: {//配置跟随鼠标或鼠标滑过点时的十字准星线
+
+                },
+            }],
+            yAxis: [{
+                allowDecimals: true,//是否在坐标轴标签中显示小数
+                alternateGridColor: "#fff",//当指定该参数时，相邻刻度线之间会用对应的颜色来绘制颜色分辨带。
+                crosshair: {//配置跟随鼠标或鼠标滑过点时的十字准星线
+                    color: "#f00",//颜色
+                    dashStyle: "Dash",//线条的样式，默认solid,参考https://api.hcharts.cn/highcharts#plotOptions.series.dashStyle
+                    snap: false,//是否与最近的点对齐，为 true 时十字准星线会自动的对齐到最近的点，为 false 则是当前鼠标的位置。 默认是：true.
+                    width: 1,//十字准星线的宽度，对于数值和时间轴，默认值是 1，对于分类轴默认值是一个分类
+                    zIndex: 2,//准星线的层叠值，增大层叠值可以让准星线显示在数据里或网格线的上方。 默认是：2.
+                },
+                gridLineColor: "#f0f",//坐标轴的网格线颜色默认是：#e6e6e6
+                gridLineDashStyle: "Dash",//网格线线条样式，所有可用的线条样式参考：Highcharts线条样式。 默认是：Solid.
+                gridLineWidth: "2",//网格线线条宽度，当设置为 0 时则不显示网格线。
+                gridZIndex: "1",//网格线的层叠值（zIndex） 默认是：1.
+                id: "dada",//坐标轴的编号。可以通过 chart.get(id) 的形式来获取坐标轴对象。
+                labels: {//轴标签相关
+                    align: "center",//轴标签的对齐方式，可用的值有 "left"、"center" 及 "right"。轴标签具体的位置还和 labels.x
+                    enabled: true,//是否显示坐标轴标签 默认是：true.
+                    rotation: 12,//旋转角度
+                    staggerLines: "1",//只针对水平轴有效，定义轴标签显示行数。
+                    step: 1,//显示 n 的倍数标签，例如设置为 2 则表示标签间隔一个轴标签显示。
+                    style: {//轴标签的 CSS 样式
+                        "color": "#666666",
+                        "cursor": "default",
+                        "fontSize": "11px"
+                    },
+                    x: 0,
+                    y: 0,
+                    zIndex: 1
+                },
+                lineColor: "#000",//坐标轴轴线的颜色值。默认是：#ccd6eb.
+                lineWidth: 2,//坐标轴轴线的宽度。默认是：0.
+                max: 50,//坐标轴的最大值。当设置为 null 时，最大值将会自动计算。当 endOnTick 参数值为 true 时，max 值将会向上取整。
+                min: 25,//坐标轴的最小值，当为 null 是最小值将自动计算。如果设置了 startOnTick 为 true 时，最小值可能会进行向下取整。轴的最小值自动计算受 floor、softMin、minPadding、minRange、series.threshold 及 series.softThreshold 影响。
+                minorGridLineColor: "#909",//次网格线的颜色。
+                minorGridLineDashStyle: "Solid",//次网格线线条样式。 默认是：Solid.
+                minorGridLineWidth: 1,//次网格线的线条宽度
+                minorTickColor: "#000", //坐标轴次刻度线颜色。 默认是：#999999.
+                minorTickLength: "10",//坐标轴的次刻度线的线条长度。 默认是：2.
+                minorTickPosition: "outside",//次刻度线相对于坐标轴轴线的位置。可用的值有 inside 及 outside。 默认是：outside.
+                minorTickWidth: 5,//坐标轴次刻度线的线条宽度。（次刻度线是相对于主刻度线 tick 的） 默认是：0.
+                offset: 5,//坐标轴距离绘图区的像素值（以轴线为基准）。该参数将会将整个坐标轴进行偏移。在多个轴展示在同一侧的情况下非常有用，可以一次排列多个坐标轴。在没有明确给定此参数的情况下，为了避免多坐标轴相互冲突（覆盖、重叠等），该参数会进行自动计算。 默认是：0.
+                opposite: false,//是否将坐标轴显示在对立面，默认情况下 x 轴是在图表的下方显示，y 轴是在左方，坐标轴显示在对立面后，x 轴是在上方显示，y 轴是在右方显示（即坐标轴会显示在对立面）。该配置一般是用于多坐标轴区分展示，另外在 Highstock 中，y 轴默认是在对立面显示的。 默认是：false.
+                showEmpty: true,//当坐标轴没有数据时，是否显示坐标轴（包括轴线及坐标轴标题）。 默认是：true.
+                showFirstLabel: true,//是否显示坐标轴的第一个标签 默认是：true.
+                showLastLabel: true,//是否显示坐标轴的最后一个标签。 默认是：true.
+                softMax: 30,//坐标轴的柔和最大值（soft max），如果坐标轴对应数据列的最大值小于这个值，那么坐标轴的最大值将保持不变，如果数据列最大值大于这个值，那么坐标轴将改变最大值并保证展示所有数据。（和 max 不同的时，数据列中的数据超过 max 值将不会被展示，而 softMax 则可以，也就是 softMax 是可变的，max 是硬性的最大值）
+                softMin: 0,
+                tickAmount: 15,//规定坐标轴上的刻度总数， 一般是用于在多轴或多表盘（仪表图）中对齐刻度，另外该配置会覆盖 tickPixelInterval 参数。该参数只对线性轴有效，对时间轴、对数轴、分类轴无效。
+                tickColor: "#f00",//坐标轴刻度线的颜色。默认是：#ccd6eb.
+                tickLength: 10,//坐标轴刻度线的长度。 默认是：10.
+                tickPixelInterval: 50,//如果刻度间隔（tickInterval）为 null ，那么此参数决定了刻度之间间隔的像素值。该参数对分类坐标轴无效。对于 Y 轴，其默认值是72，X 轴则是 100
+                tickPosition: "inside ",//刻度线相对于轴线的位置，可用的值有 inside 和 outside，分别表示在轴线的内部和外部。 默认是：outside.
+                //tickPositioner:function(){},//坐标轴刻度计算回调函数，该函数返回值是包含刻度位置的数组
+                tickPositions: [0, 4, 7, 20],//刻度位置数组。该参数会覆盖 tickPixelInterval 及 tickInterval 对刻度的影响。
+                tickWidth: 2,//坐标轴刻度线的宽度，设置为 0 时则不显示刻度线默认是：0.
+                type: "linear",//坐标轴类型。可以是 "linear", "logarithmic", "datetime" 或者 "category"之一，分别表示 “线性轴”、“对数轴”、“时间轴”、“分类轴”。默认是：linear.
+                visible: true,//是否显示坐标轴，包含坐标轴、坐标轴标题、坐标轴轴线、坐标轴标签等。 默认是：true.
+                title: {
+                    text: '功率 (mW)'
+                },
+            }],
+            plotOptions: {
+                line: {//只针对line类型
+                    allowPointSelect: true,//是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
+                    animation: true,//是否开启数据列初始化显示动画，默认是 true， 可以设置为 false 来关闭动画，该配置还可以设置成对象的形式。
+                    cursor: "pointer",//指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
+                    dashStyle: "DashDot",//
+                    dataLabels: {//数据标签是指显示在数据点旁边的标签，一般用于显示数据点值或其他少量信息。
+                        borderColor: "#f00",
+                        enabled: "false",
+                    },
+
+                    dataLabels: {
+                        enabled: true          // 开启数据标签
+                    },
+                    enableMouseTracking: true // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                }
+            },
+            series: [{
+                color: "#f00",//数据列的颜色，在线图中，该颜色对线条、数据点（除非单独对某个点指定）生效。在柱形图中，每个柱子的颜色也是这个颜色值（除非对某个柱子单独设置）。数据列的默认值是取自 options.colors 数组。
+                cursor: "pointer",//指定鼠标滑过数据列时鼠标的形状。当绑定了数据列点击事件时，可以将此参数设置为 "pointer"，用来提醒用户改数据列是可以点击的。
+                name: '东京',//图例中的名称
+                allowPointSelect: true,//是否允许在点击数据点标记（markers）、柱子（柱形图）、扇区（饼图）时选中该点，选中的点可以通过 Chart.getSelectedPoints 来获取。 默认是：false.
+                animation: true,//是否开启数据列初始化显示动画，默认是 true， 可以设置为 false 来关闭动画，该配置还可以设置成对象的形式。
+                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }, {
+                name: '伦敦',
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+
+</script>
+
+</html>

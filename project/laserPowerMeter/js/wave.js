@@ -116,20 +116,6 @@ var chart = Highcharts.chart('container', {
             color: "#ff0",//数据列的颜色，在线图中，该颜色对线条、数据点（除非单独对某个点指定）生效。在柱形图中，每个柱子的颜色也是这个颜色值（除非对某个柱子单独设置）。数据列的默认值是取自 options.colors 数组。
             name: '平均值',//图例中的名称
             //data: [[370.4,3.110],[374.5,6.120],[378.3,12.00],[382.3,13.652],[382.9,15.684],[386.3,11.586],[390.3,18.458]]
-            data: [[370.4, 3], {
-                dataLabels: {
-                    enabled: true,
-                    align: 'left',
-                    style: {
-                        fontWeight: 'bold'
-                    },
-                    x: 3,
-                    verticalAlign: 'middle',
-                    overflow: true,
-                    crop: false
-                },
-                y: 54.4
-                
-            }],
+            data: [[370.4, 3], [400,3]],
         }]
 });

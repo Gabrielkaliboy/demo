@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <title>仪表盘</title>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="lib/highcharts/highcharts.js"></script>
+<script src="lib/highcharts/sand-signika.js"></script>
+<script src="lib/highcharts/highcharts-more.js"></script>
+<script src="lib/highcharts/exporting.js"></script>
+<script src="lib/highcharts/highcharts-zh_CN.js"></script>
+<script>
+    $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: '百分比堆叠柱形图'
+                },
+                xAxis: {
+                    categories: ['苹果', '橘子', '梨', '葡萄', '香蕉']
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: '水果消费总量'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                    shared: true
+                },
+                plotOptions: {
+                    column: {
+                        // 所有柱形图都会堆叠
+                        stacking: 'normal'
+                    }
+                },
+                series: [{
+                    name: '小张',
+                    data: [5, 3, 4, 7, 2]
+                }, {
+                    name: '小彭',
+                    data: [2, 2, 3, 2, 1]
+                }, {
+                    name: '小潘',
+                    data: [3, 4, 4, 2, 5]
+                }, {
+                    stacking: null, // 不堆叠
+                    name: '平均值',
+                    data: [3.3, 3, 3.7, 3.7, 2.7]
+                }]
+            });
+        });
+
+</script>
+
+</html>

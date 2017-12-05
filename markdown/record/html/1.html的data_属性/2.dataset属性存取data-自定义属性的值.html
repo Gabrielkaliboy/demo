@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dataset属性存取data-自定义属性的值</title>
+</head>
+<body>
+<div id="user" data-id="1234567890" data-name="愚人码头" data-date-of-birth>码头</div>
+<script type="text/javascript">
+    var el = document.querySelector('#user');
+    console.log(el.id); // 'user'
+    console.log(el.dataset);//一个DOMStringMap
+    console.log(el.dataset.id); // '1234567890'
+    console.log(el.dataset.name); // '愚人码头'
+    console.log(el.dataset.dateOfBirth); // ''
+    el.dataset.dateOfBirth = '1985-01-05'; // 设置data-date-of-birth的值.
+    console.log('someDataAttr' in el.dataset);//false
+    el.dataset.someDataAttr = 'mydata';
+    console.log('someDataAttr' in el.dataset);//true
+</script>
+</body>
+</html>

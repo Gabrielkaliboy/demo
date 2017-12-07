@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>validity</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="tel">手机号：</label>
+        <input type="text" id="tel" name="tel" required maxlength="5" pattern="^[0-9]*$">
+        <input type="submit" value="提交">
+    </form>
+</body>
+<script>
+    var myId=document.getElementById("tel");
+    console.log(myId.validity);
+    myId.setCustomValidity("最多输入5为数字");
+    console.log(myId.validity.customError);//true
+    console.log(myId.validationMessage);//最多输入5为数字
+    myId.setCustomValidity("");
+    console.log(myId.validity.customError);//false
+    console.log(myId.validationMessage);//请填写此字段。
+</script>
+</html>

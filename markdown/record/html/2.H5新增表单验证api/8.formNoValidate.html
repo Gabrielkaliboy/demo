@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>formNoValidate</title>
+</head>
+
+<body>
+    <form action="">
+        <h2>给submit添加formNoValidate，就不会进行h5的表单验证</h2>
+        <label for="tel">手机号：</label>
+        <input type="text" id="tel" name="tel" required maxlength="5" pattern="^[0-9]*$">
+        <input type="submit" value="提交" formNoValidate>
+    </form>
+</body>
+<script>
+    var myId=document.getElementById("tel");
+</script>
+</html>

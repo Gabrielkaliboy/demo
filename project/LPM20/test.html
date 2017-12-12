@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery实现JSONP</title>
+</head>
+
+<body>
+    <div id="mydiv">
+        <button id="btn">点击</button>
+    </div>
+</body>
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btn").click(function () {
+
+            $.ajax({
+                url: "http://192.168.43.1:8080/powerRequest?command=power",
+                type: "GET",
+                // crossDomain:true,
+                dataType: "jsonp", // 返回的数据类型，设置为JSONP方式
+                jsonp: 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+                jsonpCallback: 'handleResponse', //设置回调函数名
+                // data: {},
+                success: function (data) {
+                    console.log(data);
+                    alert(data);
+                }, 
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                }
+            });
+        });
+    });
+</script>
+
+</html>

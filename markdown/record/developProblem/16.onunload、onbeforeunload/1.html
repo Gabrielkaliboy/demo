@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>test close window</title>
+    <script type="text/javascript"> 
+
+        function hello() {
+
+            alert("hello world");
+        }
+
+        function ha() {
+
+            alert("bye");
+        }
+
+        function go() {
+
+            event.returnValue = "真的要退出吗？";
+
+        } 
+    </script>
+</head>
+
+<body onload="hello();" onunload="ha(); " onbeforeunload="go();">
+    <h1>hello world</h1>
+    <a href="http://www.baidu.com">heloo </a>
+</body>
+
+</html>

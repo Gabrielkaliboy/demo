@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app1">
+        <span v-bind:title="title">
+            鼠标划上来会显示标题
+        </span>
+    </div>
+    <div id="app2">
+        <span v-if="status">
+            我出现了
+        </span>
+    </div>
+    <div id="app3">
+        <ol>
+            <li v-for="todo in todos">{{ todo.text }}</li>
+        </ol>
+    </div>
+    <div id="app4">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">消息反转</button>
+    </div>
+    <div id="app5">
+        <p>{{ message }}</p>
+        <input type="text" v-model="message">
+    </div>
+    <div id="app6">
+        <ol>
+            <todo-list v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+
+            </todo-list>
+        </ol>
+    </div>
+</body>
+<script>
+    Vue.component('todo-list',{
+        template:"<li>{{ todo.text }}</li>",
+        props:['todo']
+    });
+    var app6 = new Vue({
+        el:"#app6",
+        data:{
+            groceryList: [
+                { id: 0, text: '蔬菜' },
+                { id: 1, text: '奶酪' },
+                { id: 2, text: '随便其它什么人吃的东西' }
+            ]
+        }
+    });
+    var app5 = new Vue({
+        el:"#app5",
+        data:{
+            message:"我会变"
+        }
+    });
+    var app4 = new Vue({
+        el:"#app4",
+        data:{
+            message:"hello Vue.js"
+        },
+        methods:{
+            reverseMessage:function(){
+                this.message=this.message.split("").reverse().join("");
+            }
+        }
+    });
+    var app3=new Vue({
+        el:"#app3",
+        data:{
+            todos:[
+                {"text":"大发达发多少方法"},
+                {"text":"大的开发的开放"},
+                {"text": "大发达发多少方法"},
+                {"text": "大的开发的开放"}
+            ]
+        },
+    });
+    var app=new Vue({
+        el:"#app",
+        data:{
+            message:"你好"
+        }
+    })
+    var app1=new Vue({
+        el:"#app1",
+        data:{
+            title:"我出现了"
+        }
+    })
+    var app2=new Vue({
+        el:"#app2",
+        data:{
+            status:1
+        }
+    })
+</script>
+</html>

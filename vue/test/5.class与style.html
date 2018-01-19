@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../vue.js"></script>
+    <style>
+        .myH1{
+            background: rgb(0, 255, 85);
+            color:#fff;
+        }
+        .active{
+            background: #f0f;
+
+        }
+        .active2{
+            background: #00f;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="myH1" v-bind:class="{ active: isActive }">我会变色</h1>
+        <button v-on:click="mySwitch">点我切换</button>
+    </div>
+
+    <div id="div1">
+        <p>isActive和error同时为真才会加active,同时为假才会天假Active1</p>
+        <h1 class="myH1" v-bind:class="classObject">我会变色</h1>
+        <button v-on:click="mySwitch">切换Active</button>
+        <button v-on:click="addFalse">切换error</button>
+    </div>
+
+    <div id="div2">
+        <h1 class="myH1" v-bind:class="[class1,class2]">我会变色</h1>
+    </div>
+    
+    <div id="div3">
+        <p>class为数组</p>
+        <h1  v-bind:class='[ isActive ? "active" :"active2","myH1"]'>我会变色</h1>
+        <button v-on:click="mySwitch">切换Active</button>
+    </div>
+
+    <div id="div4">
+        <p>class为数组:当有多个条件判断的时候，上面的写法过于复杂，我们可以在数组里面嵌套对象</p>
+        <h1 v-bind:class='[ {active:isActive},"myH1"]'>我会变色</h1>
+        <button v-on:click="mySwitch">切换Active</button>
+    </div>
+</body>
+
+<script>
+    var div4 = new Vue({
+        el:"#div4",
+        data:{
+            isActive:false
+        },
+        methods:{
+            mySwitch:function(){
+                this.isActive = ! this.isActive
+            }
+        }
+    });
+    var div3 = new Vue({
+        el:"#div3",
+        data:{
+            isActive:false
+        },
+        methods:{
+            mySwitch:function(){
+                this.isActive = !this.isActive;
+            }
+        }
+    });
+    var div2 = new Vue({
+        el:"#div2",
+        data:{
+            class1:"active",
+            class2:"active2"
+        }
+    });
+    var app = new Vue({
+        el:"#app",
+        data:{
+            isActive:false
+        },
+        methods:{
+            mySwitch:function(){
+                this.isActive=! this.isActive;
+            }
+        }
+    })
+
+    var div1 = new Vue({
+        el: "#div1",
+        data: {
+            isActive: false,
+            error: null
+        },
+        methods: {
+            mySwitch: function () {
+                this.isActive = !this.isActive;
+            },
+            addFalse: function () {
+                this.error = !this.error;
+            }
+
+        },
+        computed: {
+            classObject: function () {
+                return {
+                    active: this.isActive && this.error,
+                    active2:!(this.isActive || this.error)
+                }
+            }
+        }
+    })
+</script>
+
+</html>

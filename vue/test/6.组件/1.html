@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <h1>局部注册：</h1>
+    <div id="app1">
+        <child-component></child-component>
+    </div>
+
+    <h1>模板解析注意事项</h1>
+    <div id="app2">
+        <table>
+            <tr is="row-component"></tr>
+            <tr is="row-component"></tr>
+            <tr is="row-component"></tr>
+            <tr is="row-component"></tr>
+        </table>
+    </div>
+
+    <h4>将每个counter分开</h4>
+    <div id="app3">
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+
+    <h4>共用一个counter</h4>
+    <div id="app4">
+        <app4-component></app4-component>
+        <app4-component></app4-component>
+        <app4-component></app4-component>
+    </div>
+</body>
+<script>
+    var data={
+        counter:0
+    }
+    var app3 = new Vue({
+        el:"#app4",
+        components:{
+            "app4-component":{
+                template:"<button v-on:click='counter+=1'>{{ counter }}</button>",
+                data:function(){
+                    return data
+                }
+            }
+        }
+    })
+    var app3 = new Vue({
+        el:"#app3",
+        components:{
+            "simple-counter":{
+                template:"<button v-on:click='counter+=1'>{{ counter }}</button>",
+                data:function(){
+                    return {
+                        counter:0
+                    }
+                }
+            }
+        }
+    })
+    var app2 = new Vue({
+        el:"#app2",
+        components:{
+            "row-component":{
+                template:"<h3>我是row-component组件</h3>"
+            }
+        }
+    });
+
+    Vue.component("my-component",{
+        template:"<h2>你好啊，我是my-component组件</h2>"
+    });
+    var app = new Vue({
+        el:"#app"
+    });
+
+    const child = {
+        template:"<h5>你好，我是child组件</h5>"
+    }
+    var app1 = new Vue({
+        el:"#app1",
+        components:{
+            "child-component":child
+        }
+    });
+</script>
+</html>

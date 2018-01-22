@@ -13,20 +13,38 @@
     <div id="app">
         <child-component v-bind:child="message"></child-component>
     </div>
+    <div id="app1">
+        <child></child>
+    </div>
 </body>
 <script>
+    var app1 = new Vue({
+        el:"#app1",
+        components:{
+            "child":{
+                template:"<div><label>姓名：<input type='text' v-model='name'></label><label>年龄：<input type='text' v-model='age'></label><p>你输入的姓名是：{{ name }}年龄是：{{ age }}</p></div>",
+                data:function(){
+                    // 注意组件里面的data必须是function
+                    return {
+                        name:"admin",
+                        age:12
+                    }
+                }
+            }
+        }
+    });
     var app = new Vue({
         el:"#app",
         data:{
-            message:[{
+            message:{
                 name:"李明",
                 age:"21",
                 sex:"男"
-            }]
+            }
         },
         components:{
             "child-component":{
-                template:"<label>姓名：{{ child.name }} </label><label>年龄：{{ child.age }}</label><label>性别：{{ child.sex }}</label>",
+                template:"<p><label>姓名：{{ child.name }} </label><label>年龄：{{ child.age }}</label><label>性别：{{ child.sex }}</label></p>",
                 props:["child"]
             }
         }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="add">{{ counter }}</button>
+        <my-component v-bind:counter='counter'></my-component>
+    </div>
+    <div id="app1">
+        <my-component v-bind:mes="message"></my-component>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            counter:1
+        },
+        methods:{
+            add:function(){
+                this.counter++
+            }
+        },
+        components:{
+            "my-component":{
+                template:"<button v-on:click='add'>{{ myCounter }}</button>",
+                props:["counter"],
+                data:function(){
+                    return {
+                        myCounter:this.counter
+                    }
+                },
+                methods:{
+                    add:function(){
+                        this.myCounter++;
+                    }
+                }
+            }
+        }
+    })
+    var app1 = new Vue({
+        el:"#app1",
+        data:{
+            message:"block"
+        },
+        components:{
+            "my-component":{
+                template:"<div><input type='text' v-model='myMes'><br><span>你输入的是：{{ myMes }}</span><br><span>我现在把它倒过来：{{sem()}}</span></div>",
+                props:["mes"],
+                data:function(){
+                    return {
+                        myMes:this.mes,
+                    }
+                },
+                methods:{
+                    sem:function(){
+                        return this.myMes.split("").reverse().join("");
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</html>

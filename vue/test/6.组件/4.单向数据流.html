@@ -17,8 +17,33 @@
     <div id="app1">
         <my-component v-bind:mes="message"></my-component>
     </div>
+    <div id="app2">
+<my-component v-bind:my="message"></my-component>
+    </div>
 </body>
 <script>
+    var app = new Vue({
+        el:"#app2",
+        data:{
+            message:"block"
+        },
+        components:{
+            "my-component":{
+                template:"<div><input type='text' v-model='myValue'><br><span>{{ myValue }}</span><br><p>你输入的内容反转以后是{{ myOtherValue }}</p></div>",
+                props:["my"],
+                data:function(){
+                    return {
+                        myValue:this.my
+                    }
+                },
+                computed:{
+                    myOtherValue:function(){
+                        return this.myValue.split("").reverse().join("");
+                    }
+                }
+            }
+        }
+    });
     var app = new Vue({
         el:"#app",
         data:{

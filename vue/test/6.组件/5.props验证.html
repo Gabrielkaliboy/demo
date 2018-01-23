@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-number v-bind:first="myNum"></my-number>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            myNum:1,
+            myStr:"李明",
+            myBoolean:true,
+            myObj:{
+                "name":"李明",
+                "age":23
+            },
+            myArr:[1,2,3,4,5,65],
+            myFunc:function(){
+                return "myFunc"
+            }
+        },
+        components:{
+            "my-number":{
+                template:"<div>请输入数字：<input type='text' v-model='inputNum'><br><span>你输入的数字是：{{ inputNum }}</span> </div>",
+                props:{
+                    first:{
+                        type:Number,
+                        default:100
+                    }
+                },
+                data:function(){
+                    return {
+                        inputNum:this.first,
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <style>
+        .my {
+            padding: 30px 20px 30px 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="details">
+            <my-component v-bind:show.sync='valueChild' class="my"></my-component>
+            <button v-on:click="changeValue">toggle</button>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            valueChild: true
+        },
+        methods: {
+            changeValue() {
+                this.valueChild = !this.valueChild
+            }
+        },
+        components: {
+            "my-component": {
+                template: '<div v-if="show"><p>默认初始值是{{ show }}，所以是显示的</p><button v-on:click.stop="closeDiv">关闭</button></div>',
+                props: ['show'],
+                methods: {
+                    closeDiv() {
+                        this.$emit("update:show", false);//触发input事件并传入新值
+                    }
+                }
+
+            }
+        }
+    });
+</script>
+
+</html>

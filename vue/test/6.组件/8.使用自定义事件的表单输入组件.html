@@ -18,33 +18,35 @@
 
 <body>
     <div id="app">
-        <div class="details">
-            <my-component v-bind:show.sync='valueChild' class="my"></my-component>
-            <button v-on:click="changeValue">toggle</button>
-        </div>
+        <currency-input></currency-input>
     </div>
 </body>
 <script>
     var app = new Vue({
-        el: "#app",
-        data: {
-            valueChild: true
-        },
-        methods: {
-            changeValue() {
-                this.valueChild = !this.valueChild
-            }
-        },
-        components: {
-            "my-component": {
-                template: '<div v-if="show"><p>默认初始值是{{ show }}，所以是显示的</p><button v-on:click.stop="closeDiv">关闭</button></div>',
-                props: ['show'],
-                methods: {
-                    closeDiv() {
-                        this.$emit("update:show", false);//触发input事件并传入新值
+        el:"#app",
+        components:{
+            "currency-input":{
+                template:`
+                        <span>$<input ref="input" v-bind:value="value" v-on:input=updateValue($event.target.value)></span>
+                        `,
+                props:["value"],
+                methods:{
+                    // 不是直接更新值，而是使用此方法来对输入值进行格式化和位数限制
+                    updateValue:function(value){
+                        var formattedValue = value
+                        //删除两侧空白符号
+                        .trim()
+                        //保留两位小数
+                        .slice(0,value.indexOf(".") === -1 ? value.length : value.indexOf(".")+3)
+
+                        //如果这个值尚不合规，则手动覆盖为合规的值
+                        if (formattedValue !== value){
+                            this.$refs.input.value=formattedValue
+                        }
+                        //通过input事件带出值
+                        this.$emit('input',Number(formattedValue))
                     }
                 }
-
             }
         }
     });

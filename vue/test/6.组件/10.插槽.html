@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app1">
+        <my-component>
+             <h2>我是父组件里面的内容，如果子组件里面没有solt节点，我将会被抛弃</h2>
+        </my-component>
+    </div>
+    <hr>
+    <div id="app2">
+        <my-component>
+            <h2>我是父组件里面的内容，如果子组件里面没有solt节点，我将会被抛弃</h2>
+        </my-component>
+    </div>
+    <hr>
+    <div id="app3">
+        <my-component>
+            
+        </my-component>
+    </div>
+    <hr>
+    <div id="app4">
+        <my-component>
+            <h3 slot="header">我是头部</h3>
+            <h3 slot="footer">我是尾部</h3>
+            我没有slot属性名字
+        </my-component>
+    </div>
+</body>
+<script>
+    var app4 = new Vue({
+            el: "#app4",
+            components: {
+                "my-component": {
+                    template: `
+                        <div class="container">
+                            <header>
+                                <slot name = "header"></slot>
+                            </header>
+                            <main>
+                                <h2>我是子组件的标题</h2>
+                                <slot>如果父组件里面没有东西，我才会显示出来，如果有其他东西，就会显示其他的</slot>
+                            </main>
+                            <footer>
+                                <slot name = "footer"></slot>
+                            </footer>
+                        </div>
+                    `
+                }
+            }
+        });
+    var app3 = new Vue({
+            el: "#app3",
+            components: {
+                "my-component": {
+                    template: `
+                <div>
+                    <h2>我是子组件的标题</h2>
+                    <slot>如果父组件里面没有东西，我才会显示出来，如果有其他东西，就会显示其他的</slot>
+                </div>
+        `
+                }
+            }
+        });
+    var app2 = new Vue({
+            el: "#app2",
+            components: {
+                "my-component": {
+                    template: `
+                    <div>
+                        <h2>我是子组件的标题</h2>
+                        <slot>如果父组件里面没有东西，我才会显示出来，如果有其他东西，就会显示其他的</slot>
+                    </div>
+            `
+                }
+            }
+        });
+
+    var app1 = new Vue({
+        el:"#app1",
+        components:{
+            "my-component":{
+                template:`
+                    <h2>我是子组件的标题</h2>
+                `
+            }
+        }
+    });
+</script>
+</html>

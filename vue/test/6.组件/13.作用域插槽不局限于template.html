@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-awesome-list :items="items">
+            <!-- 作用域插槽也可以是具名的 -->
+            <li slot="item" slot-scope="props" class="my-fancy-item">
+                {{ props.text }}
+            </li>
+        </my-awesome-list>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data: {
+            items:[
+                {
+                    text:"123"
+                },{
+                    text:"456"
+                }
+            ]
+        },
+        components:{
+            "my-awesome-list":{
+                template:`
+                <ul>
+                    <slot name="item"
+                        v-for="item in items"
+                        :text="item.text">
+                        <!-- 这里写入备用内容 -->
+                    </slot>
+                </ul>
+                `,
+                data:function(){
+                    return {
+                        items: [
+                            {
+                                text: "123"
+                            }, {
+                                text: "456"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</html>

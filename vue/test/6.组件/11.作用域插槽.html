@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="parent">
+            <child>
+                <template slot-scope="props">
+                    <span>hello from parent</span>
+                    <span>{{ props.text }}</span>
+                </template>
+            </child>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        components:{
+            "child":{
+                template:`
+                    <div class="child">
+                        <slot text="我来自子组件"></slot>
+                    </div>
+                `
+            }
+        }
+    })
+</script>
+
+</html>

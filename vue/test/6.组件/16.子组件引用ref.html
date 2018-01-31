@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <style>
+        .input1{
+            background:#f00;
+            color:#fff;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h4>普通dom元素</h4>
+        <input type="text" ref="input1" id="input1" value="123">
+        <button v-on:click="myclick">改变</button>
+    </div>
+    <hr>
+    <div id="app1">
+        <h4>绑定在父组件</h4>
+        <my-component ref="mycomponent" id="mycomponent">
+
+        </my-component>
+        <button v-on:click="myclick">改变</button>
+    </div>
+    <hr>
+    <div id="app2">
+        <h4>绑定在子组件</h4>
+        <my-component>
+    
+        </my-component>
+        <button v-on:click="myclick">改变</button>
+    </div>
+    <hr>
+    <div id="app3">
+        <h4>ref和v-for在一起的情况</h4>
+        <ul v-for="item in list">
+            <li ref="item">
+                姓名：{{ item.name }}<br>
+                年龄：{{ item.age }}
+            </li>
+        </ul>
+        <button v-on:click="myclick">点击获取</button>
+    </div>
+</body>
+<script>
+    var app3 =new Vue({
+        el:"#app3",
+        data:{
+            list:[
+                {name:"lili",age:12},
+                {name:"dafds",age:34},
+                {name:"afsdeeb",age:23}
+            ]
+        },
+        methods:{
+            myclick:function(){
+                console.log(this.$refs.item);//获取的是三个li数组
+                console.log(this.$refs.item[1])//第一个li的dom
+            }
+        }
+    });
+    var app2 = new Vue({
+        el: "#app2",
+        components: {
+            "my-component": {
+                template: `
+                    <div ref="my" id="my">我是子元素</div>
+                `
+            }
+        },
+        methods: {
+            myclick: function () {
+                console.log(this.$refs.my);//undefined
+                console.log(document.getElementById("my"));//<div id="my">我是子元素</div>
+            }
+        }
+    });
+    var app1 = new Vue({
+        el:"#app1",
+        components:{
+            "my-component":{
+                template:`
+                    <div>我是子元素</div>
+                `
+            }
+        },
+        methods:{
+            myclick:function(){
+                console.log(this.$refs.mycomponent);//这里拿到的是vue的my-component组件
+                console.log(document.getElementById("mycomponent"));//<div>我是子元素</div>
+            }
+        }
+    });
+    var app = new Vue({
+        el:"#app",
+        methods:{
+            myclick:function(){
+                console.log(document.getElementById("input1"));//<input type="text" id="input1" value="123">
+                console.log(this.$refs.input1);//<input type="text" id="input1" value="123">
+                this.$refs.input1.value="456";
+                this.$refs.input1.className="input1"
+            }
+        }
+    });
+</script>
+
+</html>

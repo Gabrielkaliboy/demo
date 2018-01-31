@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="isIf">如果v-if是true的话，我就会显示</p>
+        <p v-else>isIf为false的时候显示我</p>
+        <button v-on:click="myclick">我是来控制上面p标签显示与否的</button>
+        <hr>
+        <p v-if="myIf">如果v-if是true的话，我就会显示</p>
+        <p v-else>myIf为false的时候显示我</p>
+        <button v-on:click="myclick1">我是来控制上面p标签显示与否的</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            isIf: true,
+            myIf:false
+        },
+        methods: {
+            myclick: function () {
+                this.isIf = !this.isIf;
+            },
+            myclick1: function () {
+                this.myIf = !this.myIf;
+            }
+        }
+    });
+
+</script>
+
+</html>

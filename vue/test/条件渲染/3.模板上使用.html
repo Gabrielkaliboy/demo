@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <component :is="mycomponent" v-if="isIf"></component>
+        <component :is="othercomponent" v-else></component>
+        <button v-on:click="myclick">点我</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            mycomponent:"my-component",
+            othercomponent:"other-component",
+            isIf: true,
+        },
+        methods: {
+            myclick: function () {
+                this.isIf = !this.isIf;
+            },
+        },
+        components:{
+            "my-component":{
+                template:`
+                    <div>我是my-component子组件</div>
+                `
+            },
+            "other-component":{
+                template:`
+                    <div>我是other-component组件</div>
+                `
+            }
+        }
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>我会保留文字不会清除</h1>
+        <template v-if="loginType==='username'">
+            <label for="username">姓名：</label>
+            <input type="text" id="username" placeholder="请输入你的姓名">
+        </template>
+        <template v-else>
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="请输入你的邮箱地址">
+        </template>
+
+        <button v-on:click="myclick">换登录方式</button>
+    </div>
+    <hr>
+    <div id="app1">
+        <h1>我使用了key值,不会保存另一部分输入</h1>
+        <template v-if="loginType==='username'">
+            <label for="username">姓名：</label>
+            <input type="text" id="username" placeholder="请输入你的姓名" key="username-input">
+        </template>
+        <template v-else>
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="请输入你的邮箱地址" key="emai-input">
+        </template>
+    
+        <button v-on:click="myclick">换登录方式</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app1",
+        data: {
+            loginType: "username",
+            mytype: true
+        },
+        methods: {
+            myclick: function () {
+                this.mytype = !this.mytype;
+                if (this.mytype) {
+                    this.loginType = "username";
+                } else {
+                    this.loginType = "email";
+                }
+            }
+        }
+    });
+
+    var app = new Vue({
+        el: "#app",
+        data:{
+            loginType:"username",
+            mytype:true
+        },
+        methods:{
+            myclick:function(){
+                this.mytype = !this.mytype;
+                if(this.mytype){
+                    this.loginType="username";
+                }else{
+                    this.loginType = "email";
+                }
+            }
+        }
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="myIf==='A'">A</div>
+        <div v-else-if="myIf==='B'">B</div>
+        <div v-else-if="myIf==='C'">C</div>
+        <div v-else>D</div>
+        <button v-on:click="myclick">点击切换</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            myIf:"A"
+        },
+        methods:{
+            myclick:function(){
+                const str="ABC";
+                if(this.myIf != "C"){
+                    this.myIf = str.substring(str.indexOf(this.myIf) + 1, str.indexOf(this.myIf) + 2);
+                }else{
+                    this.myIf="A";
+                }
+
+            }
+        }
+    });
+
+</script>
+
+</html>

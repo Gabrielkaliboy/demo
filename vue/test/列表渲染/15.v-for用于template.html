@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+           <template v-for="n in message">
+               <li>姓名：{{n.name}</li>
+               <li>年龄：{{n.age}}</li>
+               <li>性别：{{n.sex}}</li>
+               <hr>
+           </template>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data:{
+            message:[
+                {"name":"李明","age":23,"sex":"男"},
+                {"name":"小攻","age":34,"sex":"女"}
+            ]
+        }
+    });
+</script>
+
+</html>

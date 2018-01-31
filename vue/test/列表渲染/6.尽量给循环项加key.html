@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>这里的key指的是他在循环项中的位置</h3>
+        <ul>
+            <li v-for="(value,key,index) in message" v-bind:key="{{index}}">我的索引是{{index}},{{ key }}:{{ value }}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: {
+                "name": "李明",
+                "sex": "男",
+                "age": 23
+            }
+        }
+    });
+</script>
+
+</html>

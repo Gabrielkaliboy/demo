@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in message">我是第{{index}}个元素，我的名字是{{item.name}}</li>
+        </ul>
+        <button v-on:click="myclick">插入</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        methods: {
+            myclick: function () {
+                this.message.concat([{ "name": "李明" }]);
+                //没有更改原始数组，所以称为不变异；
+                console.log(this.message);
+            }
+        },
+        data: {
+            message: [
+                { "name": "afdasfasfd" },
+                { "name": "dfasfasfsaf" },
+                { "name": "adpookljej" }
+            ]
+        }
+    });
+</script>
+
+</html>

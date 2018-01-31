@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component v-for="(n,key) in message" v-bind:item="n" v-bind:key="key">
+
+        </my-component>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: [
+                { "name": "李明", "age": 23, "sex": "男" },
+                { "name": "王三", "age": 23, "sex": "男" },
+                { "name": "小攻", "age": 34, "sex": "女" }
+            ]
+        },
+        components:{
+            "my-component":{
+                props:["item"],
+                template:`
+                    <div>
+                        <div> 姓名：{{ item.name }}</div>
+                        <div> 年龄：{{ item.age }} </div>
+                        <div> 性别：{{  item.sex }}</div>
+                        <hr>
+                    </div>
+                `
+            }
+        }
+    });
+</script>
+
+</html>

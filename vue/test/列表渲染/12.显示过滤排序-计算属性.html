@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in evenNums">我是第{{index}}个元素，我的名字是{{item}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            myNum:[1,2,324,3234,22,3,42,52324,324]
+        },
+        computed:{
+            evenNums:function(){
+                return this.myNum.filter(function(num){
+                    return num %2 ===0
+                });
+            }
+        }
+    });
+</script>
+
+</html>

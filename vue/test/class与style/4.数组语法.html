@@ -6,19 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="../../vue.js"></script>
+    <style>
+        .origin {
+            background: #f9f900;
+            color: #000;
+        }
+
+        .active {
+            background: #f00;
+            color: #fff;
+        }
+    </style>
     <title>Document</title>
 </head>
 
 <body>
     <div id="app">
-        <my-component>
-            <h4>我是内联模板</h4>
-        </my-component>
+        <div v-bind:class="[isActive,isOrigin]">我会变色</div>
     </div>
 </body>
 <script>
     var app = new Vue({
         el:"#app",
+        data:{
+            isActive:"origin",
+            isOrigin:"active"
+        }
     });
 </script>
 

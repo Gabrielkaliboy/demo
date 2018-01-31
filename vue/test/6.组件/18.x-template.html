@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="../../vue.js"></script>
     <title>Document</title>
+    <script type="text/x-template" id="my-template">
+        <h3>我是用x-template写出来的模板</h3>
+    </script>
 </head>
 
 <body>
@@ -18,7 +21,12 @@
 </body>
 <script>
     var app = new Vue({
-        el:"#app",
+        el: "#app",
+        components:{
+            "my-component":{
+                template:"#my-template"
+            }
+        }
     });
 </script>
 

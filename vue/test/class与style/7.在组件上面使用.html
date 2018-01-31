@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <style>
+        .origin {
+            background: #f00;
+            color: #fff;
+        }
+
+        .active {
+            border:1px solid #f99;
+            border-radius:20px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h4>active和origin将共同作用在子组件上</h4>
+        <my-component class="active"></my-component>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        components:{
+            "my-component":{
+                template:`
+                    <p class="origin">我是子组件</p>
+                `
+            }
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" id="jack" value="jack"  v-model="names" v-bind:checked="my">
+        <label for="jack">jack</label>
+        <input type="checkbox" id="tom" value="tom" v-model="names" v-bind:checked="my">
+        <label for="tom">tom</label>
+        <input type="checkbox" id="mucu" value="mucu" v-model="names" v-bind:checked="my">
+        <label for="mucu">mucu</label>
+        <br>
+        <span>Checked names: {{ names }}</span>
+        <br>
+        <button v-on:click="myclick">全选切换</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            names:[],
+            my:false
+        },
+        methods: {
+            myclick: function () {
+                this.my = !this.my;
+            }
+        }
+    });
+
+</script>
+
+</html>

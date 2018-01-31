@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="radio" id="one" value="one" v-model="pick">
+        <label for="one">one</label>
+
+        <input type="radio" id="two" value="two" v-model="pick">
+        <label for="two">two</label>
+
+        <p>你选则的是：{{ pick }}</p>
+        <button v-on:click="myclick">选择one</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            pick:""
+        },
+        methods: {
+            myclick:function(){
+                this.pick="one"
+            }
+        }
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <select name="person" id="person" v-model="myselect" multiple>
+            <option> 李明 </option>
+            <option> 李四 </option>
+            <option> 李无 </option>
+        </select>
+
+        <p>你选则的是：{{ myselect }}</p>
+        <button v-on:click="myclick">选择李明</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            myselect: []
+        },
+        methods: {
+            myclick: function () {
+                this.myselect = "李明"
+            }
+        }
+    });
+
+</script>
+
+</html>

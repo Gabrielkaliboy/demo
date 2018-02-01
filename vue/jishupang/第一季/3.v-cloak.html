@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>我采用了计时器，所以一进来message并不会编译，这里模拟网络不好的情况，这时候我们想知道，在message被编译以后，才让他显示，这里就用到了
+            v-cloak
+        </p>
+        <div v-cloak>{{ message }}</div>
+    </div>
+</body>
+<script>
+    setTimeout(() => {
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好",
+                msgHtml: "<h4>我是H4标签</h4>"
+            }
+        });
+    }, 1000);
+</script>
+
+</html>

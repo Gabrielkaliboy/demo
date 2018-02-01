@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ message }}</div>
+        <hr>
+        等价于
+        <div v-text="message"></div>
+        <hr>
+        <div v-html="msgHtml"></div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data:{
+            message:"你好",
+            msgHtml:"<h4>我是H4标签</h4>"
+        }
+    });
+</script>
+
+</html>

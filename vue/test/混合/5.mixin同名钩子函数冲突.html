@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script type="text/javascript">
+    var myMinxin = {             //第一步,创建一个混合数据
+        created: function () {
+            this.hello();
+        },
+        methods: {
+            hello: function () {
+                alert('我是混合mixin里面created创建的');
+            }
+        }
+    }
+
+    var myComponent = Vue.extend({    //注意Vue的created与minxin的created重合,这里将先执行minxin的created
+        created: function () {
+            alert('我是Vue的created');
+        },
+        mixins: [myMinxin]
+    })
+
+    new myComponent();    //实例化这个混合
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script>  
+    var myMixin = {
+        template: '<h1>holle mixin</h1>',
+        methods: {
+            hello: function () {
+                console.log('this is mixin')
+            },
+            say: function () {
+                console.log('我是mixin的say')
+            }
+        }
+    };
+
+    var app = new Vue({
+        mixins: [myMixin],
+        methods: {
+            lsit: function () {
+                console.log('I am lsit')
+            },
+            say: function () {
+                console.log('我来自实例里面的say')
+            }
+        }
+
+    });
+
+    app.hello();
+    app.lsit();
+    app.say();  
+    //实例里面的同名函数会覆盖mixin里面的
+</script>
+
+</html>

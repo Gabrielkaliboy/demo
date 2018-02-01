@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+        <script type="text/javascript">
+            var myMinxin = {             //第一步,创建一个混合数据
+                created: function () {
+                    this.hello();
+                    this.nono();
+                },
+                methods: {
+                    hello: function () {
+                        alert('你好1');
+                    },
+                    nono: function () {
+                        alert('nono1');
+                    }
+                }
+            }
+
+            var myComponent = Vue.extend({     //methods中对象冲突,只显示Vue实例中的方法
+                created: function () {
+                    this.hello();
+                    this.nono();
+                },
+                mixins: [myMinxin],
+                methods: {
+                    hello: function () {
+                        alert('你好2');
+                    },
+                    nono: function () {
+                        alert('nono2');
+                    }
+                }
+            })
+
+            new myComponent();    //实例化这个混合
+        </script>
+</html>

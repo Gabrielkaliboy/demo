@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script>
+    //定义一个混合对象
+    var myMixin = {
+        created:function(){
+            this.hello()
+        },
+        methods:{
+            hello:function(){
+                console.log("我来自mixin");
+            }
+        }
+    }
+    //定义一个使用混合对象的组件
+    var Component = Vue.extend({
+        mixins:[myMixin]
+    });
+
+    var comp = new Component();
+    var app = new Vue({
+        el:"#app",
+        components:{
+            "my-component":comp
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-lang="color">{{ num }}</div>
+        <p><button v-on:click="add">add</button></p>
+    </div>
+</body>
+<script>
+    Vue.directive("lang",function(el,binding,vnode,oldVnode){
+        console.log(el);//<div>11</div>
+        console.log(binding);//一个对象
+        console.log(this);//这里的this是window
+        console.log(vnode);
+        console.log(oldVnode);
+        el.style="color:"+ binding.value;////binding.value就是color颜色red。
+    });
+    var app = new Vue({
+        el: "#app",
+        data:{
+            num:10,
+            color:"red"
+        },
+        methods:{
+            add:function(){
+                this.num++;
+            }
+        }
+    });
+</script>
+
+</html>

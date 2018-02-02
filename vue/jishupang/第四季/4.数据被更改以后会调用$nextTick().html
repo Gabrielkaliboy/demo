@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <button onclick="myclick()">修改</button>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好"
+        }
+    });
+    function myclick() {
+        app.message= "我被修改了";
+        app.$nextTick(function(){
+            alert("数据更新完毕以后会调用$nextTick");
+        })
+    }
+</script>
+
+</html>

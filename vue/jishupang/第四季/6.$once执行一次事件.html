@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span>{{message}}</span>
+        <button @click="add()">+1</button>
+    </div>
+    <p>
+        <button onclick="reduce()">减少</button>
+    </p>
+    <p>
+        <button onclick="reduceOnce()">执行一次减少</button>
+    </p>
+    <p>
+        <button onclick="off()">关闭</button>
+    </p>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: 1
+        },
+        methods: {
+            add: function () {
+                this.message++
+            }
+        }
+    })
+    // 实例事件
+    vm.$on("reduce", function () {
+        this.message--
+    })
+    //只使用一次的实例方法
+    vm.$once("reduceOnce", function () {
+        this.message--;
+    })
+    // 关闭事件
+    function off() {
+        vm.$off("reduce");
+    }
+
+    // 外部调用内部事件
+    function reduce() {
+        vm.$emit("reduce")
+    }
+    function reduceOnce() {
+        vm.$emit("reduceOnce");
+    }
+</script>
+
+</html>

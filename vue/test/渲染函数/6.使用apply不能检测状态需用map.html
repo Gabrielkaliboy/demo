@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+<div id="app">
+    <mycom :v="nnum" :ar="arr">
+        <div slot="slot2">hahahhah</div>
+        <div slot="slot1">ggggggggggggg</div>
+    </mycom>
+</div>
+</body>
+    <script>  
+        Vue.component('mycom', {
+            render: function (createElement) {
+                if (this.v == 1) {
+                    return createElement('div',
+                        this.ar.map(function (item) {
+                            return createElement('li',
+                                {
+                                    domProps: {
+                                        innerHTML: item
+                                    }
+                                })
+                        })
+                    )
+                } else {
+                    return createElement('div',
+                        Array.apply(null, this.ar.map(function (item) {
+                            return createElement('li',
+                                {
+                                    domProps: {
+                                        innerHTML: 'item'
+                                    }
+                                })
+                        }))
+                    )
+                }
+            },
+            props: {
+                v: {
+                    type: Number,
+                    default: 0
+                },
+                n: {
+                    default: 'hello'
+                },
+                ar: {
+                    type: Array,
+                    default: function () { return [1, 23, 4, 5, 6, 55, 65] }
+                }
+
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                nnum: 2,
+                arr: [1, 2, 3, 4, 5, 6, 7, 8]
+            }
+        })  
+    </script>
+
+</html>

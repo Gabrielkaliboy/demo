@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+<div id="app">
+    <mycom :v="nnum">
+        <div slot="slot2">hahahhah</div>
+        <div slot="slot1">ggggggggggggg</div>
+    </mycom>
+</div>
+</body>
+<script>
+    Vue.component('mycom', {
+        render: function (createElement) {
+            var s = this;
+            if (this.v == 1) {
+                return createElement('div',
+                    {
+                        domProps: { innerHTML: 'component n=' + this.n }
+                    })
+            } else {
+
+                return createElement('div',
+                    [this.$slots.slot1, this.$slots.slot2])
+            }
+        },
+        props: {
+            v: {
+                type: Number,
+                default: 0
+            },
+            n: {
+                default: 'hello'
+            }
+        }
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            nnum: 1
+        }
+    })  
+</script>
+
+</html>

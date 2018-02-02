@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <script type="text/x-template" id="templateId">
+        <h1 v-if="level === 1">
+        <slot></slot>
+        </h1>
+        <h2 v-else-if="level === 2">
+        <slot></slot>
+        </h2>
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <tb-heading :level="2">
+            <a href="#">Hello world!</a>
+        </tb-heading>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        components: {
+            "tb-heading": {
+                template: "templateId",
+                props: {
+                    level: {
+                        type: number,
+                        required: true
+                    }
+                },
+                render:function (createElement){
+                    return createElement (
+                        'h' + this.level,    // tag name 标签名称
+                        this.$slots.default  // 组件的子元素
+                    )
+                }
+            }
+        }
+    });
+</script>
+
+</html>

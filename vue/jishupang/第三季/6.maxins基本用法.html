@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <script type="text/x-template" id="mytem">
+        <h1> 我是选项模板 </h1>
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ num }}
+        <button v-on:click="myclick">add</button>
+    </div>
+</body>
+<script>
+
+    var mymixin={
+        updated:function(){
+            console.log("数据发生了变化，变成了"+this.num+".");
+        }
+    }
+
+    
+    var app = new Vue({
+            el: "#app",
+            data: {
+                num: 0
+            },
+            methods: {
+                myclick: function (event) {
+                    console.log(event);
+                    this.num++;
+                }
+            },
+            mixins: [mymixin]
+        })
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <script type="text/x-template" id="mytem">
+        <h1> 我是选项模板 </h1>
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header></header>
+</body>
+<script>
+    var myextend = Vue.extend({
+        template: `<div>{{ message }}-{{ a }}</div>`,
+        data: function () {
+            return {
+                message: "你好，我是header"
+            }
+        },
+        props:["a"],
+    });
+
+    new myextend({propsData:{a:"97889"}}).$mount("header");
+</script>
+
+</html>

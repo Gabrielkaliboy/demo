@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ num }}</p>
+        <h4>{{ goodName }}</h4>
+        <button onclick="myclick()">点我</button>
+    </div>
+</body>
+<script>
+    var outData = {
+        num: 0,
+        goodName: "car"
+    }
+    var app = new Vue({
+        el: "#app",
+        data: outData
+    });
+    function myclick() {
+        outData.num++;
+    }
+</script>
+
+</html>

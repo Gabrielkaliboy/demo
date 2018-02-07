@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .router-link-active {
+            color: #f00;
+        }
+
+        .active-link {
+            color: aqua;
+        }
+    </style>
+    <script src="../../vue.js"></script>
+    <script src="../../vue-router.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <router-link to="/user/foo">user/foo</router-link>
+            <router-link to="/user/bar">user/bar</router-link>
+        </div>
+
+        <p>
+            <router-view></router-view>
+        </p>
+    </div>
+</body>
+<script>
+    const User = {
+        template: `
+            <div>{{ $route.params.id }}</div>
+        `,
+        beforeUpdate(to,from,next){
+            console.log("To");
+            console.log(to);
+            console.log("From");
+            console.log(from);
+            console.log("next");
+            console.log(next);
+        }
+    }
+    const router = new VueRouter({
+        routes: [
+            { path: "/user/:id", component: User }
+        ]
+    })
+
+    const app = new Vue({
+        el: "#app",
+        router,
+    });
+</script>
+
+</html>

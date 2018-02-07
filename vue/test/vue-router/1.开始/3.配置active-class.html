@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .router-link-active {
+            color: #f00;
+        }
+        .active-link{
+            color:aqua;
+        }
+    </style>
+    <script src="../../../vue.js"></script>
+    <script src="../../../vue-router.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            <router-link to="/bar" active-class="active-link">Bar</router-link>
+            <router-link to="/foo">Foo</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+</body>
+<script>
+    const Bar={
+        template:"<div>我是Bar</div>"
+    }
+    const Foo = {
+        template:"<div>我是Foo</div>"
+    }
+    var router = new VueRouter({
+        routes:[
+            {path:"/bar",component:Bar},
+            {path:"/foo",component:Foo}
+        ]
+    });
+    var app = new Vue({
+        el:"#app",
+        router:router
+    });
+</script>
+
+</html>

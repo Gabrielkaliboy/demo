@@ -14,5 +14,9 @@ public class RandomStr
 		}
 		
 		System.out.println(result);
+		
+		String a="34";
+		//使用Integer方法将一个字符串转换为int类型
+		int iValue=Integer.parseInt(a);
 	}
 }

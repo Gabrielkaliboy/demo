@@ -8,11 +8,11 @@ class BaseClass
 	
 	public void test()
 	{
-		system.out.println("父类的test方法");
+		System.out.println("父类的test方法");
 	}
 }
 
-public class SubClass extends BaseBlass
+public class SubClass extends BaseClass
 {
 	// 重新定义一个book实例变量来隐藏父类的book实例变量
 	public String book="java EE";
@@ -36,18 +36,18 @@ public class SubClass extends BaseBlass
 		System.out.println(bc.book);
 		
 		//下面两次调用将执行BaseClass的方法
-		bc.base();
-		bc.test();
+		bc.base();//父类的普通方法base
+		bc.test();//父类的test方法
 		
 		//下面编译时和运行时完全一样，因此不存在多态
 		SubClass sc=new SubClass();
 		
 		System.out.println(sc.book);//java EE
 		//下面将执行从父类继承到的base方法
-		sc.base();
+		sc.base();//父类的普通方法base
 		
 		//下面调用将执行当前类的test()方法
-		sc.test();
+		sc.test();//子类的test方法覆盖了父类的
 		
 		//下面编译时类型和运行时类型不同，多态发生
 		BaseClass ploymophicBc = new SubClass();
@@ -56,10 +56,10 @@ public class SubClass extends BaseBlass
 		System.out.println(ploymophicBc.book);
 		
 		//下面调用将执行从父类继承到的base方法
-		ploymophicBc.base();
+		ploymophicBc.base();//父类的普通方法base
 		
 		//下面调用将执行从当前类的test方法
-		ploymophicBc.test();
+		ploymophicBc.test();//子类的test方法覆盖了父类的
 		
 		//因为ploymophicBc的编译时的类型为BaseClass
 		//BaseClass类没有提供sub方法，所以下面代码编译时会出错
